@@ -1,0 +1,7 @@
+<div>
+    <app-categories-item 
+        *ngFor="let category of allCategories; let ind = index"
+        [indexCategory]="ind"
+        [category]="category">
+    </app-categories-item>
+</div>

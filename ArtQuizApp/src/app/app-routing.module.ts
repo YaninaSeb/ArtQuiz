@@ -4,9 +4,13 @@ import { CategoriesComponent } from './quiz/pages/categories/categories.componen
 import { HomeComponent } from './quiz/pages/home/home.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent },
-  {path: 'categories', component: CategoriesComponent }
+  // {path: '', component: HomeComponent },
+  { path: '', redirectTo: 'art_quiz', pathMatch: 'full' },
 
+  { 
+    path: 'art_quiz',
+    loadChildren: () => import('./quiz/quiz.module').then(m => m.QuizModule),
+  }
 ];
 
 @NgModule({
