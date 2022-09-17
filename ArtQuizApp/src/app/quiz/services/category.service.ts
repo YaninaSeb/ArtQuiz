@@ -11,22 +11,17 @@ export class CategoryService {
 
   constructor() { }
 
-  getAllCategory() {
+  getAllCategory(): IQuizItem[][] {
     return Object.values(artQuizData);
   }
 
-  getCountQuestions(indCategory: number) {
-    return artQuizData[`${indCategory}`].length;
-  }
-
-  getCountRightAnswer(category: IQuizItem[]): number {    
+  getCountRightAnswer(categoryItems: IQuizItem[]): number {    
     let res = 0;
-    category.forEach((item: IQuizItem) => {
+    categoryItems.forEach((item: IQuizItem) => {
       if (this.categoryName == 'artists') {
-        res += item.artistsQuizAnswer ? 1 : 0
-      }
-      if (this.categoryName == 'pictures') {
-        res += item.picturesQuizAnswer ? 1 : 0
+        res += item.artistsQuizAnswer ? 1 : 0;
+      } else if (this.categoryName == 'pictures') {
+        res += item.picturesQuizAnswer ? 1 : 0;
       }
     });
     return res;

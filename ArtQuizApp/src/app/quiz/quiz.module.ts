@@ -6,15 +6,14 @@ import { CategoriesResultComponent } from './components/categories-result/catego
 import { CategoriesItemComponent } from './components/categories-item/categories-item.component';
 import { CommonModule } from "@angular/common";
 import { CategoryService } from "./services/category.service";
-import { FooterComponent } from "../core/components/footer/footer.component";
-import { CoreModule } from "../core/core.module";
+import { QuestionsComponent } from './pages/questions/questions.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'artists', component: CategoriesComponent, pathMatch: 'full' },
   { path: 'pictures', component: CategoriesComponent, pathMatch: 'full' },
-  { path: 'artists/:indexCategory', component: HomeComponent, pathMatch: 'full' }
-
+  { path: 'artists/:indexCategory', component: QuestionsComponent, pathMatch: 'full' },
+  { path: 'pictures/:indexCategory', component: QuestionsComponent, pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -22,7 +21,8 @@ const routes: Routes = [
     HomeComponent,
     CategoriesComponent,
     CategoriesResultComponent,
-    CategoriesItemComponent
+    CategoriesItemComponent,
+    QuestionsComponent
   ],
   imports: [
     RouterModule.forChild(routes),

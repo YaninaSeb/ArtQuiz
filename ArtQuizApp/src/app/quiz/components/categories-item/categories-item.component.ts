@@ -15,7 +15,7 @@ export class CategoriesItemComponent implements OnInit {
 
   countQuestions!:number;
 
-  countRightAnswer:number = 0;
+  countRightAnswer!:number;
 
   constructor(private categoryService: CategoryService) { }
 
