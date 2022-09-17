@@ -1,8 +1,10 @@
+<a routerLink="{{indexCategory}}">
+    <div class="category-item">
+        <p> Категория {{indexCategory + 1}}</p>
+        <p> {{ countRightAnswer }} / {{ countQuestions }}</p>
+    
+        <img class="category-item-img" src="../../../../assets/background/categories/{{indexCategory+1}}.jpg">
+    
+    </div>
+</a>
 
-<div>
-    <h3> Категория {{indexCategory + 1}}</h3>
-    <h3> {{ countRightAnswer }} / {{ countQuestions }}</h3>
-
-    <img src="../../../../assets/background/categories/{{indexCategory+1}}.jpg">
-
-</div>

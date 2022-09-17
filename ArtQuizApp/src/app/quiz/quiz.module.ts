@@ -6,11 +6,14 @@ import { CategoriesResultComponent } from './components/categories-result/catego
 import { CategoriesItemComponent } from './components/categories-item/categories-item.component';
 import { CommonModule } from "@angular/common";
 import { CategoryService } from "./services/category.service";
+import { FooterComponent } from "../core/components/footer/footer.component";
+import { CoreModule } from "../core/core.module";
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'artists', component: CategoriesComponent, pathMatch: 'full' },
-  { path: 'pictures', component: CategoriesComponent, pathMatch: 'full' }
+  { path: 'pictures', component: CategoriesComponent, pathMatch: 'full' },
+  { path: 'artists/:indexCategory', component: HomeComponent, pathMatch: 'full' }
 
 ];
 
@@ -28,6 +31,8 @@ const routes: Routes = [
   exports: [
     RouterModule
   ],
-  providers: [CategoryService]
+  providers: [
+    CategoryService
+  ]
 })
 export class QuizModule {}

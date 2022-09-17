@@ -17,6 +17,8 @@ import { QuizModule } from './quiz/quiz.module';
     CoreModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

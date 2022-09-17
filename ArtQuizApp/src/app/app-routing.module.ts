@@ -4,7 +4,6 @@ import { CategoriesComponent } from './quiz/pages/categories/categories.componen
 import { HomeComponent } from './quiz/pages/home/home.component';
 
 const routes: Routes = [
-  // {path: '', component: HomeComponent },
   { path: '', redirectTo: 'art_quiz', pathMatch: 'full' },
 
   { 
@@ -14,7 +13,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule { }
