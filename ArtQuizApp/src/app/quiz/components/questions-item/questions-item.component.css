@@ -5,26 +5,23 @@
     
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
-.questions-item-answers {
+.questions-item-images {
     border: 1px solid rgb(1, 39, 1);
 
-    width: 850px;
-    height: 150px;
+    width: calc(95vw - 200px);
 
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 25px;
 }
-.questions-item-answers-variant {
-    background: greenyellow;
-
+.questions-item-images-variant {
     width: 400px;
-    height: 60px;
-
-    text-align: center;
-    line-height: 60px;
+    height: 280px;
+    border-radius: 5%;
+    overflow: hidden;
 }

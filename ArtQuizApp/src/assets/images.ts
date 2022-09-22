@@ -3,6 +3,7 @@ export interface IImagesItem {
   name: string,
   year: string,
   imageNum: string
+  randomNums?: number[]
 }
 
 export const imagesInfo: IImagesItem[] = [

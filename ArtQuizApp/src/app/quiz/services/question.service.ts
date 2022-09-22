@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { artQuizData, IQuizItem } from 'src/assets/db';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { IImagesItem, imagesInfo } from 'src/assets/images';
 
 @Injectable({
@@ -7,28 +7,51 @@ import { IImagesItem, imagesInfo } from 'src/assets/images';
 })
 export class QuestionService {
 
+  numberQuestion$$ = new BehaviorSubject<number>(1);
+
+  numberQuestion$ = this.numberQuestion$$.asObservable();
+
   constructor() { }
 
-  numQuestionsInCategory = 10;
+  questionsInCategory = 10;
+
+  getQuestion(numCategory: number, numQuestion: number) {
+    let category = this.getCategory(numCategory);
+    let question = category[numQuestion - 1];
+    question.randomNums = this.getRandomImg(numQuestion - 1);
+    return question;
+  }
 
   getCategory(num: number): IImagesItem[] {
     let numImageFrom = (num - 1) * 10;
-    let numImageTo = numImageFrom + this.numQuestionsInCategory - 1;
-    let arrCategory = imagesInfo.slice(numImageFrom, numImageTo);
-    return arrCategory;
+    let numImageTo = numImageFrom + this.questionsInCategory;
+    let category = imagesInfo.slice(numImageFrom, numImageTo);
+    return category;
   }
 
-  getRandomNum(numQuestion: number) {
-    // let res = [numQuestion];
-    // let countImgInQuestion = 4;
-    // while (res.length == countImgInQuestion) {
-    //   let randomNum = Math.random() * this.countAllQuestion + 1;
-    //   if (!res.includes(randomNum)) res.push(randomNum);
-    // }
-    // return res;
+  getRandomImg(numQuestion: number): number[] {
+    let res = [numQuestion];
+    let countImgInQuestion = 4;
+    let countAllQuestion = imagesInfo.length;
+    while (res.length < countImgInQuestion) {
+      let randomNum = Math.round(Math.random() * (countAllQuestion - 1));
+      if (!res.includes(randomNum)) res.push(randomNum);
+    }
+    return this.shuffle(res);
   }
 
+  shuffle(array: number[]) {
+    return array.sort(() => Math.random() - 0.5);
+  }
 
+  nextQuestion() {
+    let numQuestion = this.numberQuestion$$.value + 1;
+    this.numberQuestion$$.next(numQuestion);
+  }
+
+  unsubscribeNumberQuestion() {
+    this.numberQuestion$$.next(1);
+  }
 
 
 }

@@ -11,15 +11,11 @@ import { QuestionService } from '../../services/question.service';
 })
 export class QuestionsItemComponent implements OnInit {
 
-  // private videos$$ = new Subject<ISearchItem[]>();
-
-  numCategory!: number; //динамически меняет значение
-
-  category!: IImagesItem[];
+  numCategory!: number;
 
   currentQuestion!: IImagesItem;
 
-  numberQuestion = 1;
+  private currentQuestionSubscription!: Subscription;
 
   private subscription!: Subscription;
 
@@ -33,8 +29,18 @@ export class QuestionsItemComponent implements OnInit {
       this.numCategory = Number(params['indexCategory']);
     });
 
-    this.category = this.questionService.getCategory(this.numCategory);
-    this.currentQuestion = this.category[this.numberQuestion - 1];
+    this.currentQuestionSubscription = this.questionService.numberQuestion$.subscribe((numQuestion: number) => {
+      this.currentQuestion = this.questionService.getQuestion(this.numCategory, numQuestion);
+    })
   }
-  
+
+  nextQuestion() {
+    this.questionService.nextQuestion();
+  }
+
+  ngOnDestroy(): void {
+    this.currentQuestionSubscription.unsubscribe();
+    this.questionService.unsubscribeNumberQuestion();
+  }
+
 }
