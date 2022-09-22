@@ -14,6 +14,33 @@ export interface IQuizItem {
 export const artQuizData: IQuiz =  {
   '1': [
     {
+      "author": "Эдгар Дега",
+      "name": "Голубые танцовщицы",
+      "year": "1897",
+      "imageNum": "1",
+      "isPassed": false,
+      "artistsQuizAnswer": true,
+      "picturesQuizAnswer": false
+    },
+    {
+      "author": "Веронезе",
+      "name": "Пир в доме Левия",
+      "year": "1563",
+      "imageNum": "2",
+      "isPassed": false,
+      "artistsQuizAnswer": true,
+      "picturesQuizAnswer": false
+    },
+    {
+      "author": "Илья Репин",
+      "name": "Иван Грозный и сын его Иван",
+      "year": "1885",
+      "imageNum": "3",
+      "isPassed": false,
+      "artistsQuizAnswer": true,
+      "picturesQuizAnswer": false
+    },
+    {
       "author": "Константин Маковский",
       "name": "Портрет графини Софьи",
       "year": "1890",

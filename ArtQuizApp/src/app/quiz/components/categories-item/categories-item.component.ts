@@ -11,19 +11,15 @@ export class CategoriesItemComponent implements OnInit {
 
   @Input() indexCategory!: number;
 
-  @Input() category!: IQuizItem[];
+  numQuestions!: number;
 
-  countQuestions!:number;
-
-  countRightAnswer!:number;
+  numRightAnswers!:number;
 
   constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
-    this.countQuestions = this.category.length;
-    this.countRightAnswer = this.categoryService.getCountRightAnswer(this.category);
+    this.numQuestions = this.categoryService.numQuestionsInCategory;
+    this.numRightAnswers = this.categoryService.getCountRightAnswers(this.indexCategory);
   }
-
-
 
 }

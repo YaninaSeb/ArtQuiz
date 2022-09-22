@@ -1,7 +1,6 @@
-<div>
+<div class="wrap-categories-result">
     <app-categories-item 
-        *ngFor="let category of allCategories; let ind = index"
-        [indexCategory]="ind"
-        [category]="category">
+        *ngFor="let numCategory of numCategories; let ind = index"
+        [indexCategory]="ind">
     </app-categories-item>
 </div>

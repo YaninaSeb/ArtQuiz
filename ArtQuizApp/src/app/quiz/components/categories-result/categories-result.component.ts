@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { IQuiz, IQuizItem } from 'src/assets/db';
 import { CategoryService } from '../../services/category.service';
 
@@ -9,13 +11,12 @@ import { CategoryService } from '../../services/category.service';
 })
 export class CategoriesResultComponent implements OnInit {
 
-  allCategories: IQuizItem[][] = [];
+  numCategories!: number[];
 
   constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
-    this.allCategories = this.categoryService.getAllCategory()
+    this.numCategories = new Array(this.categoryService.numCategories);
   }
-
 
 }

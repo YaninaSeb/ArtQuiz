@@ -7,6 +7,7 @@ import { CategoriesItemComponent } from './components/categories-item/categories
 import { CommonModule } from "@angular/common";
 import { CategoryService } from "./services/category.service";
 import { QuestionsComponent } from './pages/questions/questions.component';
+import { QuestionsItemComponent } from './components/questions-item/questions-item.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -22,7 +23,8 @@ const routes: Routes = [
     CategoriesComponent,
     CategoriesResultComponent,
     CategoriesItemComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    QuestionsItemComponent
   ],
   imports: [
     RouterModule.forChild(routes),

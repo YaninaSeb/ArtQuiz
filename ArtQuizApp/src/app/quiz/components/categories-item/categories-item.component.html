@@ -1,10 +1,8 @@
-<a routerLink="{{indexCategory + 1}}">
-    <div class="category-item">
-        <p> Категория {{indexCategory + 1}}</p>
-        <p> {{ countRightAnswer }} / {{ countQuestions }}</p>
-    
-        <img class="category-item-img" src="../../../../assets/background/categories/{{indexCategory+1}}.jpg">
-
+<div class="wrap-categories-item" routerLink="{{ indexCategory + 1 }}">
+    <div class="categories-item-title">
+        <p> Категория {{ indexCategory + 1 }}</p>
+        <p> {{ numRightAnswers }} / {{ numQuestions }}</p>
     </div>
-</a>
+    <img class="categories-item-img" src="../../../../assets/background/categories/{{ indexCategory + 1 }}.jpg">
+</div>
 
