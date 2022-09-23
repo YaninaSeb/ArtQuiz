@@ -1,0 +1,22 @@
+<div class="wrap-questions-item">
+    <div class="questions-item-title"> 
+        Какую из этих картин написал {{ currentQuestion.author }}?
+    </div>
+    <button (click)="nextQuestion()">next</button>
+
+    <div class="questions-item-images">
+        <img class="questions-item-images-variant"
+            *ngFor="let randomNumImg of currentQuestion.randomNums" 
+            src="../../../../assets/img/{{ randomNumImg }}.jpg"
+            (click)="checkAnswer(randomNumImg)"
+            alt="picture">
+    </div>
+
+    <div class="questions-item-score">
+        <div class="questions-item-score-color"
+            *ngFor="let answer of score"
+            [appScoreHighlight]="answer">
+        </div>
+    </div>
+
+</div>

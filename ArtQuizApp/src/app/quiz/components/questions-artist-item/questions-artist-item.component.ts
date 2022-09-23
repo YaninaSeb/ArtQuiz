@@ -5,11 +5,11 @@ import { IImagesItem } from 'src/assets/images';
 import { QuestionService } from '../../services/question.service';
 
 @Component({
-  selector: 'app-questions-item',
-  templateUrl: './questions-item.component.html',
-  styleUrls: ['./questions-item.component.css']
+  selector: 'app-questions-artist-item',
+  templateUrl: './questions-artist-item.component.html',
+  styleUrls: ['./questions-artist-item.component.css']
 })
-export class QuestionsItemComponent implements OnInit {
+export class QuestionsArtistItemComponent implements OnInit {
 
   numCategory!: number;
 
@@ -18,6 +18,8 @@ export class QuestionsItemComponent implements OnInit {
   private currentQuestionSubscription!: Subscription;
 
   private subscription!: Subscription;
+
+  score!: boolean[];
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -31,7 +33,13 @@ export class QuestionsItemComponent implements OnInit {
 
     this.currentQuestionSubscription = this.questionService.numberQuestion$.subscribe((numQuestion: number) => {
       this.currentQuestion = this.questionService.getQuestion(this.numCategory, numQuestion);
-    })
+    });
+
+    this.score = this.questionService.arrAnswers;
+  }
+
+  checkAnswer(numImg: number) {
+    this.questionService.checkAnswer(numImg);
   }
 
   nextQuestion() {
@@ -40,7 +48,7 @@ export class QuestionsItemComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.currentQuestionSubscription.unsubscribe();
-    this.questionService.unsubscribeNumberQuestion();
+    this.questionService.destroy();
   }
 
 }

@@ -25,3 +25,15 @@
     border-radius: 5%;
     overflow: hidden;
 }
+.questions-item-score {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+.questions-item-score-color {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgba(196, 196, 196, 1);
+}

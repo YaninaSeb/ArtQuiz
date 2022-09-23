@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { IImagesItem, imagesInfo } from 'src/assets/images';
 
 @Injectable({
@@ -7,13 +7,15 @@ import { IImagesItem, imagesInfo } from 'src/assets/images';
 })
 export class QuestionService {
 
+  constructor() { }
+
   numberQuestion$$ = new BehaviorSubject<number>(1);
 
   numberQuestion$ = this.numberQuestion$$.asObservable();
 
-  constructor() { }
-
   questionsInCategory = 10;
+
+  arrAnswers: boolean[] = new Array(this.questionsInCategory);
 
   getQuestion(numCategory: number, numQuestion: number) {
     let category = this.getCategory(numCategory);
@@ -44,14 +46,26 @@ export class QuestionService {
     return array.sort(() => Math.random() - 0.5);
   }
 
+  checkAnswer(numImg: number) {
+    if (numImg == (this.numberQuestion$$.value - 1))  {
+      this.arrAnswers[this.numberQuestion$$.value - 1] = true;
+    } else {
+      this.arrAnswers[this.numberQuestion$$.value - 1] = false;
+    }
+  }
+
   nextQuestion() {
     let numQuestion = this.numberQuestion$$.value + 1;
     this.numberQuestion$$.next(numQuestion);
   }
 
-  unsubscribeNumberQuestion() {
+  destroy() {
     this.numberQuestion$$.next(1);
+    this.arrAnswers = [];
+    this.arrAnswers = new Array(this.questionsInCategory);
   }
 
 
 }
+
+

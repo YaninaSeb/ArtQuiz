@@ -7,7 +7,8 @@ import { CategoriesItemComponent } from './components/categories-item/categories
 import { CommonModule } from "@angular/common";
 import { CategoryService } from "./services/category.service";
 import { QuestionsComponent } from './pages/questions/questions.component';
-import { QuestionsItemComponent } from './components/questions-item/questions-item.component';
+import { QuestionsArtistItemComponent } from './components/questions-artist-item/questions-artist-item.component';
+import { ScoreHighlightDirective } from './directives/score-highlight.directive';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -24,14 +25,16 @@ const routes: Routes = [
     CategoriesResultComponent,
     CategoriesItemComponent,
     QuestionsComponent,
-    QuestionsItemComponent
+    QuestionsArtistItemComponent,
+    ScoreHighlightDirective
   ],
   imports: [
     RouterModule.forChild(routes),
     CommonModule
   ],
   exports: [
-    RouterModule
+    RouterModule,
+    CategoriesComponent
   ],
   providers: [
     CategoryService
