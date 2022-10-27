@@ -15,23 +15,21 @@ export class QuestionService {
 
   questionsInCategory = 10;
 
-  arrAnswers: boolean[] = new Array(this.questionsInCategory);
-
   getQuestion(numCategory: number, numQuestion: number) {
     let category = this.getCategory(numCategory);
     let question = category[numQuestion - 1];
-    question.randomNums = this.getRandomImg(numQuestion - 1);
+    question.randomNums = this.getRandomNums(numQuestion - 1); //получить еще 3 варианта ответа
     return question;
   }
 
   getCategory(num: number): IImagesItem[] {
-    let numImageFrom = (num - 1) * 10;
-    let numImageTo = numImageFrom + this.questionsInCategory;
-    let category = imagesInfo.slice(numImageFrom, numImageTo);
+    let numFrom = (num - 1) * 10;
+    let numTo = numFrom + this.questionsInCategory;
+    let category = imagesInfo.slice(numFrom, numTo);
     return category;
   }
 
-  getRandomImg(numQuestion: number): number[] {
+  getRandomNums(numQuestion: number): number[] {
     let res = [numQuestion];
     let countImgInQuestion = 4;
     let countAllQuestion = imagesInfo.length;
@@ -42,27 +40,23 @@ export class QuestionService {
     return this.shuffle(res);
   }
 
-  shuffle(array: number[]) {
+  shuffle(array: number[]) { //перемешать ответы
     return array.sort(() => Math.random() - 0.5);
-  }
-
-  checkAnswer(numImg: number) {
-    if (numImg == (this.numberQuestion$$.value - 1))  {
-      this.arrAnswers[this.numberQuestion$$.value - 1] = true;
-    } else {
-      this.arrAnswers[this.numberQuestion$$.value - 1] = false;
-    }
   }
 
   nextQuestion() {
     let numQuestion = this.numberQuestion$$.value + 1;
-    this.numberQuestion$$.next(numQuestion);
+
+    if (this.numberQuestion$$.value < this.questionsInCategory) {
+      this.numberQuestion$$.next(numQuestion);
+    } else {
+      // this.answersService.completeCategory();
+    }
   }
+
 
   destroy() {
     this.numberQuestion$$.next(1);
-    this.arrAnswers = [];
-    this.arrAnswers = new Array(this.questionsInCategory);
   }
 
 

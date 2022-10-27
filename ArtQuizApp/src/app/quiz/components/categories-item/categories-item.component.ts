@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IQuizItem } from 'src/assets/db';
+import { AnswersService } from '../../services/answers.service';
 import { CategoryService } from '../../services/category.service';
 
 @Component({
@@ -15,11 +16,14 @@ export class CategoriesItemComponent implements OnInit {
 
   numRightAnswers!:number;
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(
+    private categoryService: CategoryService,
+    private answersServices: AnswersService
+  ) { }
 
   ngOnInit(): void {
     this.numQuestions = this.categoryService.numQuestionsInCategory;
-    this.numRightAnswers = this.categoryService.getCountRightAnswers(this.indexCategory);
+    this.numRightAnswers = this.answersServices.getCountRightAnswers(this.indexCategory);
   }
 
 }

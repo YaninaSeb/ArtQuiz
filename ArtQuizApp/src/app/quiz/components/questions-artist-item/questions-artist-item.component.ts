@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IImagesItem } from 'src/assets/images';
+import { AnswersService } from '../../services/answers.service';
 import { QuestionService } from '../../services/question.service';
 
 @Component({
@@ -19,11 +20,12 @@ export class QuestionsArtistItemComponent implements OnInit {
 
   private subscription!: Subscription;
 
-  score!: boolean[];
+  score: boolean[] = this.answersService.score;
 
   constructor(
     private activateRoute: ActivatedRoute,
-    private questionService: QuestionService
+    private questionService: QuestionService,
+    private answersService: AnswersService
   ) { }
 
   ngOnInit(): void {
@@ -35,11 +37,10 @@ export class QuestionsArtistItemComponent implements OnInit {
       this.currentQuestion = this.questionService.getQuestion(this.numCategory, numQuestion);
     });
 
-    this.score = this.questionService.arrAnswers;
   }
 
-  checkAnswer(numImg: number) {
-    this.questionService.checkAnswer(numImg);
+  checkAnswer(numRightImg: string, numSelectedImg: number) {
+    this.answersService.checkAnswer(numRightImg, numSelectedImg);
   }
 
   nextQuestion() {
@@ -49,6 +50,7 @@ export class QuestionsArtistItemComponent implements OnInit {
   ngOnDestroy(): void {
     this.currentQuestionSubscription.unsubscribe();
     this.questionService.destroy();
+    this.answersService.destroy();
   }
 
 }
