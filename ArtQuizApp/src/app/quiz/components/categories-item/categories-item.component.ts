@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IQuizItem } from 'src/assets/db';
 import { AnswersService } from '../../services/answers.service';
 import { CategoryService } from '../../services/category.service';
 

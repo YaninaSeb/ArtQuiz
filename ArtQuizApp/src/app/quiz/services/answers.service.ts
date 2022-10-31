@@ -13,20 +13,16 @@ export class AnswersService {
 
   score = new Array(10);
 
-  constructor(
-    private questionService: QuestionService,
-    private activateRoute: ActivatedRoute,
-  ) { }
+  constructor() { }
 
-  completeCategory () {
-    let numCategory = this.activateRoute.params;
-    console.log(numCategory)
+  completeCategory (numCategory: number) {
+    this.artistsAnswers[numCategory-1] = this.currentAnswers;
 
-    // this.artistsAnswers[numCategory] = this.currentAnswers;
+    console.log('категория завершена', this.artistsAnswers)
   }
 
   getCountRightAnswers(numCategory: number): number {
-    let answers = this.artistsAnswers[numCategory - 1];
+    let answers = this.artistsAnswers[numCategory];
     if (!answers) {
       console.log('такая категория еще не сыграна')
       return 0;
@@ -36,18 +32,15 @@ export class AnswersService {
     return rightAnswers.length;
   }
 
-  checkAnswer(numRightImg: string, numSelectedImg: number) {
-    let numQuestion = this.questionService.numberQuestion$$.value - 1;
-
+  checkAnswer(numQuestion: number, numRightImg: string, numSelectedImg: number) {
     if (+numRightImg == numSelectedImg) {
       this.currentAnswers[numRightImg] = true;
-      this.score[numQuestion] = true;
+      this.score[numQuestion-1] = true;
     } else {
       this.currentAnswers[numRightImg] = false;
-      this.score[numQuestion] = false;
+      this.score[numQuestion-1] = false;
     }
   }
-
 
   destroy() {
     this.currentAnswers = {};

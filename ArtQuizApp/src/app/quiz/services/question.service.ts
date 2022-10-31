@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { IImagesItem, imagesInfo } from 'src/assets/images';
 
 @Injectable({
@@ -9,16 +8,13 @@ export class QuestionService {
 
   constructor() { }
 
-  numberQuestion$$ = new BehaviorSubject<number>(1);
-
-  numberQuestion$ = this.numberQuestion$$.asObservable();
-
   questionsInCategory = 10;
 
   getQuestion(numCategory: number, numQuestion: number) {
     let category = this.getCategory(numCategory);
     let question = category[numQuestion - 1];
-    question.randomNums = this.getRandomNums(numQuestion - 1); //получить еще 3 варианта ответа
+    question.randomNums = this.getRandomNums(numCategory - 1, numQuestion - 1); //получить еще 3 варианта ответа
+    console.log('сгенерированные рандомные варианты ответа', question.randomNums)
     return question;
   }
 
@@ -29,8 +25,9 @@ export class QuestionService {
     return category;
   }
 
-  getRandomNums(numQuestion: number): number[] {
-    let res = [numQuestion];
+  getRandomNums(numCategory: number, numQuestion: number): number[] {
+    let rightNum = 10 * numCategory + numQuestion
+    let res = [rightNum];
     let countImgInQuestion = 4;
     let countAllQuestion = imagesInfo.length;
     while (res.length < countImgInQuestion) {
@@ -43,22 +40,6 @@ export class QuestionService {
   shuffle(array: number[]) { //перемешать ответы
     return array.sort(() => Math.random() - 0.5);
   }
-
-  nextQuestion() {
-    let numQuestion = this.numberQuestion$$.value + 1;
-
-    if (this.numberQuestion$$.value < this.questionsInCategory) {
-      this.numberQuestion$$.next(numQuestion);
-    } else {
-      // this.answersService.completeCategory();
-    }
-  }
-
-
-  destroy() {
-    this.numberQuestion$$.next(1);
-  }
-
 
 }
 

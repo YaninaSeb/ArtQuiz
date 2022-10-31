@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { IQuiz, IQuizItem } from 'src/assets/db';
 import { CategoryService } from '../../services/category.service';
 
 @Component({
