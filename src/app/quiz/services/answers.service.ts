@@ -17,16 +17,12 @@ export class AnswersService {
 
   completeCategory (numCategory: number) {
     this.artistsAnswers[numCategory-1] = this.currentAnswers;
-
-    console.log('категория завершена', this.artistsAnswers)
   }
 
   getCountRightAnswers(numCategory: number): number {
     let answers = this.artistsAnswers[numCategory];
-    if (!answers) {
-      console.log('такая категория еще не сыграна')
-      return 0;
-    }
+    if (!answers) return -1;
+
     let rightAnswers = Object.values(answers).filter((answ) => answ == true);
 
     return rightAnswers.length;

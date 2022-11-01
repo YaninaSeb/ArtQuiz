@@ -1,0 +1,18 @@
+.wrap-results-item {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    overflow-y: scroll;
+}
+.results-item-img {
+    width: 18%;
+}
+.results-item-img img{
+    width: 100%;
+}
+.img-dark {
+    filter: grayscale(1)
+}

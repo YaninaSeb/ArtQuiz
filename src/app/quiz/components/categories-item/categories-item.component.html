@@ -1,7 +1,10 @@
 <div class="wrap-categories-item" routerLink="{{ indexCategory + 1 }}">
     <div class="categories-item-title">
-        <p> Категория {{ indexCategory + 1 }}</p>
-        <p> {{ numRightAnswers }} / {{ numQuestions }}</p>
+        <div> Категория {{ indexCategory + 1 }}</div>
+        <div *ngIf="numRightAnswers >= 0"> 
+            <div>{{ numRightAnswers }} / {{ numQuestions }}</div>
+            <div routerLink="{{ indexCategory + 1 }}/results">score</div>
+        </div>
     </div>
     <img class="categories-item-img" src="../../../../assets/background/categories/{{indexCategory+1}}.jpg">
 </div>

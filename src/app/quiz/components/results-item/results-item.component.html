@@ -1,0 +1,10 @@
+<div class="wrap-results">
+    <div>Категория {{ numCategory }} </div>
+
+    <div class="wrap-results-item">
+        <div *ngFor="let item of score" class="results-item-img" [ngClass]=" {'img-dark': !item[1]} ">
+            <img src="../../../../assets/img/{{item[0]}}.jpg" alt="img">
+        </div>
+    </div>
+
+</div>

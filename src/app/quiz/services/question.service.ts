@@ -14,7 +14,6 @@ export class QuestionService {
     let category = this.getCategory(numCategory);
     let question = category[numQuestion - 1];
     question.randomNums = this.getRandomNums(numCategory - 1, numQuestion - 1); //получить еще 3 варианта ответа
-    console.log('сгенерированные рандомные варианты ответа', question.randomNums)
     return question;
   }
 
