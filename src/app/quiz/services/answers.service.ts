@@ -32,9 +32,11 @@ export class AnswersService {
     if (+numRightImg == numSelectedImg) {
       this.currentAnswers[numRightImg] = true;
       this.score[numQuestion-1] = true;
+      return true
     } else {
       this.currentAnswers[numRightImg] = false;
       this.score[numQuestion-1] = false;
+      return false
     }
   }
 

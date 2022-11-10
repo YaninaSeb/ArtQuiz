@@ -11,6 +11,7 @@ import { QuestionsArtistItemComponent } from './components/questions-artist-item
 import { ScoreHighlightDirective } from './directives/score-highlight.directive';
 import { ResultsComponent } from './pages/results/results.component';
 import { ResultsItemComponent } from './components/results-item/results-item.component';
+import { AnswerModalComponent } from './components/answer-modal/answer-modal.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -33,7 +34,8 @@ const routes: Routes = [
     QuestionsArtistItemComponent,
     ScoreHighlightDirective,
     ResultsComponent,
-    ResultsItemComponent
+    ResultsItemComponent,
+    AnswerModalComponent
   ],
   imports: [
     RouterModule.forChild(routes),

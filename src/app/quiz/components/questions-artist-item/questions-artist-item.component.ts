@@ -4,6 +4,8 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 import { IImagesItem } from 'src/assets/images';
 import { AnswersService } from '../../services/answers.service';
 import { QuestionService } from '../../services/question.service';
+import { AnswerModalComponent } from '../answer-modal/answer-modal.component';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-questions-artist-item',
@@ -24,10 +26,13 @@ export class QuestionsArtistItemComponent implements OnInit {
 
   score: boolean[] = this.answersService.score;
 
+  answerModalRef: MatDialogRef<AnswerModalComponent> | null = null;
+
   constructor(
     private activateRoute: ActivatedRoute,
     private questionService: QuestionService,
-    private answersService: AnswersService
+    private answersService: AnswersService,
+    private modal: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -38,10 +43,23 @@ export class QuestionsArtistItemComponent implements OnInit {
     this.currentQuestionSubscription = this.numberQuestion$.subscribe((numQuestion: number) => {
       this.dataCurrentQuestion = this.questionService.getQuestion(this.numCategory, numQuestion);
     });
+
   }
 
   checkAnswer(numRightImg: string, numSelectedImg: number) {
-    this.answersService.checkAnswer(this.numberQuestion$$.value, numRightImg, numSelectedImg);
+    let isRight = this.answersService.checkAnswer(this.numberQuestion$$.value, numRightImg, numSelectedImg);
+
+    setTimeout(() => this.openAnswerModal(isRight), 500)
+  }
+
+  openAnswerModal(isAnswer: boolean) {
+    this.answerModalRef = this.modal.open(AnswerModalComponent, {
+      data: {...this.dataCurrentQuestion, answer: isAnswer}
+    });
+
+    this.answerModalRef.afterClosed().subscribe(() => {
+      this.nextQuestion()
+    });
   }
 
   nextQuestion() {
