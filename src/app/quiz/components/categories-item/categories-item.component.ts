@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AnswersService } from '../../services/answers.service';
 import { CategoryService } from '../../services/category.service';
 
@@ -9,13 +10,13 @@ import { CategoryService } from '../../services/category.service';
 })
 export class CategoriesItemComponent implements OnInit {
 
+  nameCategory!: string;
+
   @Input() indexCategory!: number;
 
   numQuestions!: number;
 
   numRightAnswers!:number;
-
-  nameCategory!: string;
 
   constructor(
     private categoryService: CategoryService,
@@ -25,7 +26,7 @@ export class CategoriesItemComponent implements OnInit {
   ngOnInit(): void {
     this.nameCategory = this.categoryService.nameCategory;
     this.numQuestions = this.categoryService.numQuestionsInCategory;
-    this.numRightAnswers = this.answersServices.getCountRightAnswers(this.indexCategory);
+    this.numRightAnswers = this.answersServices.getCountRightAnswers(this.nameCategory, this.indexCategory);
   }
 
 }

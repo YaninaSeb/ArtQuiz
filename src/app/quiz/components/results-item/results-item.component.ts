@@ -9,6 +9,8 @@ import { AnswersService } from '../../services/answers.service';
 })
 export class ResultsItemComponent implements OnInit {
 
+  nameCategory!: string;
+
   numCategory!: number;
 
   score!: any;
@@ -20,10 +22,15 @@ export class ResultsItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe((params) => {
-      this.numCategory = Number(params['indexCategory']);
+      this.nameCategory = params['nameCategory'];
+      this.numCategory = +params['indexCategory'];
     });
 
-    this.score = Object.entries(this.answersService.artistsAnswers[this.numCategory - 1]);
+    if (this.nameCategory == 'artists') {
+      this.score = Object.entries(this.answersService.artistsAnswers[this.numCategory - 1]);
+    } else if (this.nameCategory == 'pictures') {
+      this.score = Object.entries(this.answersService.picturesAnswers[this.numCategory - 1]);
+    }
   }
 
 }

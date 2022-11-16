@@ -6,9 +6,9 @@
     
         <div class="question-images">
             <img class="question-images-variant"
-                *ngFor="let randomNumImg of dataCurrentQuestion.randomAnswers" 
-                src="../../../../assets/img/{{+randomNumImg}}.jpg"
-                (click)="checkAnswer(dataCurrentQuestion.imageNum, randomNumImg)"
+                *ngFor="let randomAnswer of dataCurrentQuestion.randomAnswers" 
+                src="../../../../assets/img/{{+randomAnswer}}.jpg"
+                (click)="checkAnswer(dataCurrentQuestion.imageNum, randomAnswer)"
                 alt="picture">
         </div>
     
@@ -43,7 +43,7 @@
         <div class="question-artists">
             <div class="question-artists-variant"
                 *ngFor="let randomAnswer of dataCurrentQuestion.randomAnswers" 
-                (click)="checkAnswer(dataCurrentQuestion.author, randomAnswer)">
+                (click)="checkAnswer(dataCurrentQuestion.imageNum, randomAnswer)">
                 {{randomAnswer}}
             </div>
         </div>

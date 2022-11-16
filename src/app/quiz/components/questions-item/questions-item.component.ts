@@ -49,7 +49,7 @@ export class QuestionsItemComponent implements OnInit {
   }
 
   checkAnswer(rightAnswer: string, selectedAnswer: string) {
-    let isRightAnswer = this.answersService.checkAnswer(this.numberQuestion$$.value, rightAnswer, selectedAnswer);
+    let isRightAnswer = this.answersService.checkAnswer(this.nameCategory, this.numberQuestion$$.value, rightAnswer, selectedAnswer);
 
     setTimeout(() => this.openAnswerModal(isRightAnswer), 500)
   }
@@ -70,7 +70,7 @@ export class QuestionsItemComponent implements OnInit {
     if (this.numberQuestion$$.value < 10) {
       this.numberQuestion$$.next(numQuestion);
     } else {
-      this.answersService.completeCategory(this.numCategory);
+      this.answersService.completeCategory(this.nameCategory, this.numCategory);
     }
   }
 
