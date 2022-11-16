@@ -15,12 +15,15 @@ export class CategoriesItemComponent implements OnInit {
 
   numRightAnswers!:number;
 
+  nameCategory!: string;
+
   constructor(
     private categoryService: CategoryService,
     private answersServices: AnswersService
   ) { }
 
   ngOnInit(): void {
+    this.nameCategory = this.categoryService.nameCategory;
     this.numQuestions = this.categoryService.numQuestionsInCategory;
     this.numRightAnswers = this.answersServices.getCountRightAnswers(this.indexCategory);
   }

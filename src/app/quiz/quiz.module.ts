@@ -15,13 +15,9 @@ import { AnswerModalComponent } from './components/answer-modal/answer-modal.com
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: 'artists', component: CategoriesComponent, pathMatch: 'full' },
-  { path: 'pictures', component: CategoriesComponent, pathMatch: 'full' },
-  { path: 'artists/:indexCategory', component: QuestionsComponent, pathMatch: 'full' },
-  { path: 'pictures/:indexCategory', component: QuestionsComponent, pathMatch: 'full' },
-  { path: 'artists/:indexCategory/results', component: ResultsComponent, pathMatch: 'full' },
-  { path: 'pictures/:indexCategory/results', component: ResultsComponent, pathMatch: 'full' },
-
+  { path: ':nameCategory', component: CategoriesComponent, pathMatch: 'full' },
+  { path: ':nameCategory/:indexCategory', component: QuestionsComponent, pathMatch: 'full' },
+  { path: ':nameCategory/:indexCategory/results', component: ResultsComponent, pathMatch: 'full' }
 ];
 
 @NgModule({

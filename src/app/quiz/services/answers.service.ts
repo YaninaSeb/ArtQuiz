@@ -9,6 +9,8 @@ export class AnswersService {
 
   artistsAnswers: {}[] = [];
 
+  picturesAnswers: {}[] = [];
+
   currentAnswers: {[key: string] : boolean} = {};
 
   score = new Array(10);
@@ -28,8 +30,8 @@ export class AnswersService {
     return rightAnswers.length;
   }
 
-  checkAnswer(numQuestion: number, numRightImg: string, numSelectedImg: number) {
-    if (+numRightImg == numSelectedImg) {
+  checkAnswer(numQuestion: number, numRightImg: string, numSelectedImg: string) {
+    if (numRightImg == numSelectedImg) {
       this.currentAnswers[numRightImg] = true;
       this.score[numQuestion-1] = true;
       return true

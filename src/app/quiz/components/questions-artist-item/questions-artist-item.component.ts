@@ -14,6 +14,8 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 })
 export class QuestionsArtistItemComponent implements OnInit {
 
+  nameCategory!: string;
+
   numCategory!: number;
 
   dataCurrentQuestion!: IImagesItem;
@@ -37,19 +39,19 @@ export class QuestionsArtistItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe((params) => {
-      this.numCategory = Number(params['indexCategory']);
+      this.nameCategory = params['nameCategory']
+      this.numCategory = +params['indexCategory'];
     });
 
     this.currentQuestionSubscription = this.numberQuestion$.subscribe((numQuestion: number) => {
       this.dataCurrentQuestion = this.questionService.getQuestion(this.numCategory, numQuestion);
     });
-
   }
 
-  checkAnswer(numRightImg: string, numSelectedImg: number) {
-    let isRight = this.answersService.checkAnswer(this.numberQuestion$$.value, numRightImg, numSelectedImg);
+  checkAnswer(rightAnswer: string, selectedAnswer: string) {
+    let isRightAnswer = this.answersService.checkAnswer(this.numberQuestion$$.value, rightAnswer, selectedAnswer);
 
-    setTimeout(() => this.openAnswerModal(isRight), 500)
+    setTimeout(() => this.openAnswerModal(isRightAnswer), 500)
   }
 
   openAnswerModal(isAnswer: boolean) {

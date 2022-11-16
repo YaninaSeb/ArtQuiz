@@ -8,7 +8,7 @@
     justify-content: space-around;
     align-items: center;
 }
-.questions-item-images {
+.question-images {
     border: 1px solid rgb(1, 39, 1);
 
     width: calc(95vw - 200px);
@@ -19,19 +19,19 @@
     justify-content: center;
     gap: 25px;
 }
-.questions-item-images-variant {
+.question-images-variant {
     width: 400px;
     height: 280px;
     border-radius: 5%;
     overflow: hidden;
 }
-.questions-item-score {
+.question-score {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 20px;
 }
-.questions-item-score-color {
+.question-score-color {
     width: 15px;
     height: 15px;
     border-radius: 50%;

@@ -9,7 +9,7 @@ export class CategoryService {
 
   numQuestionsInCategory = 10;
 
-  categoryName: string = 'artists';
+  nameCategory!: string;
 
   constructor() { }
 

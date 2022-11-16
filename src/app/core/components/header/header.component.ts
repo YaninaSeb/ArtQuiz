@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CategoryService } from 'src/app/quiz/services/category.service';
 
 @Component({
@@ -8,12 +9,17 @@ import { CategoryService } from 'src/app/quiz/services/category.service';
 })
 export class HeaderComponent implements OnInit {
 
-  category!: string;
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(
+    private categoryService: CategoryService,
+    private activateRoute: ActivatedRoute
+  ) {}
+
+  category: string = 'artists';
+
 
   ngOnInit(): void {
-    this.category = this.categoryService.categoryName;
+
   }
 
 }
