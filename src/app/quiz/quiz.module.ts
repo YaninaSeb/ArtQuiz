@@ -7,7 +7,7 @@ import { CategoriesItemComponent } from './components/categories-item/categories
 import { CommonModule } from "@angular/common";
 import { CategoryService } from "./services/category.service";
 import { QuestionsComponent } from './pages/questions/questions.component';
-import { QuestionsArtistItemComponent } from './components/questions-artist-item/questions-artist-item.component';
+import { QuestionsItemComponent } from './components/questions-item/questions-item.component';
 import { ScoreHighlightDirective } from './directives/score-highlight.directive';
 import { ResultsComponent } from './pages/results/results.component';
 import { ResultsItemComponent } from './components/results-item/results-item.component';
@@ -27,7 +27,7 @@ const routes: Routes = [
     CategoriesResultComponent,
     CategoriesItemComponent,
     QuestionsComponent,
-    QuestionsArtistItemComponent,
+    QuestionsItemComponent,
     ScoreHighlightDirective,
     ResultsComponent,
     ResultsItemComponent,

@@ -8,11 +8,11 @@ import { AnswerModalComponent } from '../answer-modal/answer-modal.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-questions-artist-item',
-  templateUrl: './questions-artist-item.component.html',
-  styleUrls: ['./questions-artist-item.component.css']
+  selector: 'app-questions-item',
+  templateUrl: './questions-item.component.html',
+  styleUrls: ['./questions-item.component.css']
 })
-export class QuestionsArtistItemComponent implements OnInit {
+export class QuestionsItemComponent implements OnInit {
 
   nameCategory!: string;
 
