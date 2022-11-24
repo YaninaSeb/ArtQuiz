@@ -6,6 +6,7 @@ import { AnswersService } from '../../services/answers.service';
 import { QuestionService } from '../../services/question.service';
 import { AnswerModalComponent } from '../answer-modal/answer-modal.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { GameoverModalComponent } from '../gameover-modal/gameover-modal.component';
 
 @Component({
   selector: 'app-questions-item',
@@ -29,6 +30,8 @@ export class QuestionsItemComponent implements OnInit {
   score: boolean[] = this.answersService.score;
 
   answerModalRef: MatDialogRef<AnswerModalComponent> | null = null;
+
+ gameOverModalRef: MatDialogRef<GameoverModalComponent> | null = null;
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -64,6 +67,13 @@ export class QuestionsItemComponent implements OnInit {
     });
   }
 
+  openGameOverModal() {
+    let rightAnswers = this.score.filter((elem) => elem == true).length
+    this.gameOverModalRef = this.modal.open(GameoverModalComponent, {
+      data: {answers: rightAnswers}
+    });
+  }
+
   nextQuestion() {
     let numQuestion = this.numberQuestion$$.value + 1;
 
@@ -71,7 +81,7 @@ export class QuestionsItemComponent implements OnInit {
       this.numberQuestion$$.next(numQuestion);
     } else {
       this.answersService.completeCategory(this.nameCategory, this.numCategory);
-      console.log('end')
+      setTimeout(() => this.openGameOverModal(), 500) 
     }
   }
 
