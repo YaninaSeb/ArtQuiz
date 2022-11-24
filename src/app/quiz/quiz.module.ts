@@ -12,6 +12,7 @@ import { ScoreHighlightDirective } from './directives/score-highlight.directive'
 import { ResultsComponent } from './pages/results/results.component';
 import { ResultsItemComponent } from './components/results-item/results-item.component';
 import { AnswerModalComponent } from './components/answer-modal/answer-modal.component';
+import { GameoverModalComponent } from './components/gameover-modal/gameover-modal.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -31,7 +32,8 @@ const routes: Routes = [
     ScoreHighlightDirective,
     ResultsComponent,
     ResultsItemComponent,
-    AnswerModalComponent
+    AnswerModalComponent,
+    GameoverModalComponent
   ],
   imports: [
     RouterModule.forChild(routes),

@@ -23,12 +23,10 @@ export class CategoriesResultComponent implements OnInit {
   ngOnInit(): void {
     this.activateRoute.params.subscribe((params) => {
       this.nameCategory = params['nameCategory'];
-      this.questionService.nameCategory = this.nameCategory; // придумать другой способ
+      this.questionService.nameCategory = this.nameCategory;
     });
 
-    this.categoryService.nameCategory = this.nameCategory;
-
-    this.numCategories = new Array(this.categoryService.numCategories);
+    this.numCategories = new Array(12);
   }
 
 }

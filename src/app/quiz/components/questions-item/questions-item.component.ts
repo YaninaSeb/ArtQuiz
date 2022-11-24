@@ -71,6 +71,7 @@ export class QuestionsItemComponent implements OnInit {
       this.numberQuestion$$.next(numQuestion);
     } else {
       this.answersService.completeCategory(this.nameCategory, this.numCategory);
+      console.log('end')
     }
   }
 

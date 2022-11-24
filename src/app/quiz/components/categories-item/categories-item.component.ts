@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { AnswersService } from '../../services/answers.service';
-import { CategoryService } from '../../services/category.service';
+import { QuestionService } from '../../services/question.service';
 
 @Component({
   selector: 'app-categories-item',
@@ -14,18 +13,17 @@ export class CategoriesItemComponent implements OnInit {
 
   @Input() indexCategory!: number;
 
-  numQuestions!: number;
+  numQuestions = 10;
 
   numRightAnswers!:number;
 
   constructor(
-    private categoryService: CategoryService,
-    private answersServices: AnswersService
+    private answersServices: AnswersService,
+    private questionService: QuestionService
   ) { }
 
   ngOnInit(): void {
-    this.nameCategory = this.categoryService.nameCategory;
-    this.numQuestions = this.categoryService.numQuestionsInCategory;
+    this.nameCategory = this.questionService.nameCategory;
     this.numRightAnswers = this.answersServices.getCountRightAnswers(this.nameCategory, this.indexCategory);
   }
 
