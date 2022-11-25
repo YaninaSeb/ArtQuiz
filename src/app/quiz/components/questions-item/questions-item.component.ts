@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { IImagesItem } from 'src/assets/images';
 import { AnswersService } from '../../services/answers.service';
@@ -37,7 +37,8 @@ export class QuestionsItemComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     private questionService: QuestionService,
     private answersService: AnswersService,
-    private modal: MatDialog
+    private modal: MatDialog,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -71,6 +72,10 @@ export class QuestionsItemComponent implements OnInit {
     let rightAnswers = this.score.filter((elem) => elem == true).length
     this.gameOverModalRef = this.modal.open(GameoverModalComponent, {
       data: {answers: rightAnswers}
+    });
+    
+    this.gameOverModalRef.afterClosed().subscribe(() => {
+      this.router.navigate(['art_quiz', this.nameCategory]);
     });
   }
 
