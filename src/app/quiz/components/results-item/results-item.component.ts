@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AnswersService } from '../../services/answers.service';
+import { imagesInfo } from 'src/assets/images';
 
 @Component({
   selector: 'app-results-item',
@@ -14,6 +15,12 @@ export class ResultsItemComponent implements OnInit {
   numCategory!: number;
 
   score!: any;
+
+  isShowInfo = false;
+
+  indImgInfo!: number;
+
+  currentImgInfo!: any;
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -31,6 +38,16 @@ export class ResultsItemComponent implements OnInit {
     } else if (this.nameCategory == 'pictures') {
       this.score = Object.entries(this.answersService.picturesAnswers[this.numCategory - 1]);
     }
+  }
+
+  showInfo(ind: number, num: string) {
+    this.isShowInfo = !this.isShowInfo;
+    this.indImgInfo = ind;
+    if (this.isShowInfo) this.getInfoAboutImg(+num);
+  }
+
+  getInfoAboutImg(numImg: number) {
+    this.currentImgInfo = imagesInfo[numImg];
   }
 
 }
