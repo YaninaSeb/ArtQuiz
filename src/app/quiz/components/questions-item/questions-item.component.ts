@@ -31,7 +31,7 @@ export class QuestionsItemComponent implements OnInit {
 
   answerModalRef: MatDialogRef<AnswerModalComponent> | null = null;
 
- gameOverModalRef: MatDialogRef<GameoverModalComponent> | null = null;
+  gameOverModalRef: MatDialogRef<GameoverModalComponent> | null = null;
 
   constructor(
     private activateRoute: ActivatedRoute,

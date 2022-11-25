@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Event, NavigationStart, Router, RouterEvent } from '@angular/router';
+import { filter } from 'rxjs';
 import { QuestionService } from 'src/app/quiz/services/question.service';
 
 @Component({
@@ -7,14 +8,28 @@ import { QuestionService } from 'src/app/quiz/services/question.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
 
   nameCategory!: string;
 
+  isVisibilityHeader!: boolean;
+
   constructor(
     private questionService: QuestionService,
-    private router: Router
+    public router: Router
   ) {}
+
+  ngOnInit(): void {
+    this.router.events.pipe(
+      filter((e: Event) => e instanceof RouterEvent)
+    ).subscribe((e: any) => {
+      if (e.url == '/art_quiz') {
+        this.isVisibilityHeader = false;
+      } else {
+        this.isVisibilityHeader = true;
+      }
+    });
+  }
 
   goToCategories() {
     this.nameCategory = this.questionService.nameCategory;
