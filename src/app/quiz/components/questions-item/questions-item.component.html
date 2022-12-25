@@ -9,6 +9,7 @@
                 *ngFor="let randomAnswer of dataCurrentQuestion.randomAnswers" 
                 src="../../../../assets/img/{{+randomAnswer}}.jpg"
                 (click)="checkAnswer(dataCurrentQuestion.imageNum, randomAnswer)"
+                [ngClass]="{'right': true }"
                 alt="picture">
         </div>
     

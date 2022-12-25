@@ -37,3 +37,7 @@
     border-radius: 50%;
     background-color: rgba(196, 196, 196, 1);
 }
+
+.right {
+    border: 5px solid green;
+}
