@@ -1,5 +1,7 @@
 .wrap-header {
-    height: 100%;
+    min-height: 100px;
+    height: 10vh;
+    width: 100%;
     padding: 20px 70px;
     box-sizing: border-box;
     background-color: rgb(2, 2, 31);
@@ -60,6 +62,7 @@
 }
 @media (max-width: 320px) {
     .wrap-header {
+        min-height: 80px;
         padding: 20px 20px;
     }
     .header-logo {

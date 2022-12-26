@@ -1,5 +1,4 @@
 .page {
-  border: 1px solid red;
   max-width: 1920px;
   height: 100%;
   margin: 0 auto;
@@ -8,11 +7,7 @@
   background-size: cover;
   color: white;
 }
-.page-header {
-  border: 0.5px solid yellow;
-  height: 10vh;
-}
 .page-main {
-  border: 0.5px solid green;
-  height: 85vh;
+  height: 90vh;
+  overflow: scroll;
 }
