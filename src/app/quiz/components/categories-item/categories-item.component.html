@@ -1,9 +1,8 @@
 <div class="wrap-categories-item" routerLink="{{ indexCategory + 1 }}">
     <div class="categories-item-title">
-        <div> Категория {{ indexCategory + 1 }}</div>
+        <div> Category {{ indexCategory + 1 }}</div>
         <div *ngIf="numRightAnswers >= 0"> 
-            <div>{{ numRightAnswers }} / {{ numQuestions }}</div>
-            <div routerLink="{{ indexCategory + 1 }}/results">score</div>
+            <div class="categories-item-score" routerLink="{{ indexCategory + 1 }}/results">{{ numRightAnswers }} / {{ numQuestions }}</div>
         </div>
     </div>
     <img class="categories-item-img" src="../../../../assets/background/categories/{{nameCategory}}/{{indexCategory+1}}.jpg">

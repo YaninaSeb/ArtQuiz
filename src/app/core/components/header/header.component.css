@@ -21,7 +21,8 @@
 }
 .header-home-link,
 .header-categories-link {
-    width: 170px;
+    position: relative;
+    width: auto;
     height: 60px;
     line-height: 60px;
     text-align: center;
@@ -29,14 +30,32 @@
 .header-home-link:hover,
 .header-categories-link:hover {
     color: #f1ff8a;
+    font-weight: bold;
     cursor: pointer;
+}
+.header-home-link::after,
+.header-categories-link::after {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+	left: 0; /*изменить на right:0;, чтобы изменить направление подчёркивания */
+	width: 0;/*задаём длинну линии до наведения курсора*/
+	height: 1px;
+	background-color:  #f1ff8a;
+	content: "";
+	transition: width 0.3s ease-out;
+}
+.header-home-link:hover::after,
+.header-categories-link:hover::after {
+    width: 100%;
 }
 
 @media (max-width: 1024px) {
-    .header-logo,
+    .header-logo {
+        height: 50px;
+    }
     .header-home-link,
     .header-categories-link {
-        width: 120px;
         height: 50px;
         line-height: 50px;
         font-size: 18px;
@@ -49,15 +68,17 @@
 }
 @media (max-width: 520px) {
     .header-logo {
-        width: 110px;
-        height: 40px;
+        height: 45px;
     }
     .header-home-link,
     .header-categories-link {
-        width: 80px;
-        height: 40px;
-        line-height: 43px;
+        height: 45px;
+        line-height: 48px;
         font-size: 16px;
+    }
+    .header-home-link::after,
+    .header-categories-link::after {
+        bottom: 8px;
     }
 }
 @media (max-width: 320px) {
@@ -66,14 +87,17 @@
         padding: 20px 20px;
     }
     .header-logo {
-        width: 80px;
+        width: 90px;
         height: 30px;
     }
     .header-home-link,
     .header-categories-link {
-        width: 60px;
         height: 30px;
         line-height: 33px;
         font-size: 12px;
+    }
+    .header-home-link::after,
+    .header-categories-link::after {
+        bottom: 5px;
     }
 }

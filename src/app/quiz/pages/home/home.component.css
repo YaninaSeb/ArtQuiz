@@ -11,6 +11,7 @@
     background: url('../../../../assets/svg/home_logo.svg');
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center;
 }
 .home-category {
     margin-top: 15vh;
@@ -49,22 +50,12 @@
 }
 @media (max-width: 768px) {
     .home-logo {
-        width: 450px;
-        height: 180px;
+        width: 400px;
+        height: 140px;
     }
     .home-category {
         flex-direction: column;
         gap: 40px;
-    }
-}
-@media (max-width: 520px) {
-    .home-logo {
-        width: 60vw;
-        height: 20vh;
-    }
-    .home-category {
-        margin-top: 10vh;
-        gap: 25px;
     }
     .home-category-link {
         width: 270px;
@@ -73,10 +64,26 @@
         font-size: 26px;
     }
 }
+@media (max-width: 520px) {
+    .home-logo {
+        width: 380px;
+        height: 120px;
+    }
+    .home-category {
+        margin-top: 10vh;
+        gap: 25px;
+    }
+    .home-category-link {
+        width: 240px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 24px;
+    }
+}
 @media (max-width: 320px) {
     .home-logo {
-        width: 180px;
-        height: 80px;
+        width: 200px;
+        height: 100px;
     }
     .home-category {
         margin-top: 10vh;
