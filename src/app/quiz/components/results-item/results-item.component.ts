@@ -16,11 +16,7 @@ export class ResultsItemComponent implements OnInit {
 
   score!: any;
 
-  isShowInfo = false;
-
-  indImgInfo!: number;
-
-  currentImgInfo!: any;
+  allImagesInfo = imagesInfo;
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -39,15 +35,4 @@ export class ResultsItemComponent implements OnInit {
       this.score = Object.entries(this.answersService.picturesAnswers[this.numCategory - 1]);
     }
   }
-
-  showInfo(ind: number, num: string) {
-    this.isShowInfo = !this.isShowInfo;
-    this.indImgInfo = ind;
-    if (this.isShowInfo) this.getInfoAboutImg(+num);
-  }
-
-  getInfoAboutImg(numImg: number) {
-    this.currentImgInfo = imagesInfo[numImg];
-  }
-
 }

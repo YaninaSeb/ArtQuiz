@@ -1,7 +1,7 @@
 .categories-result-title {
     font-size: 40px;
     letter-spacing: 3px;
-    margin: 40px 0 70px;
+    margin: 40px 10px 70px;
     color: #f1ff8a;
 }
 .wrap-categories-result {
@@ -11,7 +11,7 @@
     justify-content: space-between;
     gap: 30px 30px;
     overflow-y: scroll;
-    padding-bottom: 20px;
+    padding: 0 10px 20px;
 }
 @media (max-width: 1440px) {
     .wrap-categories-result {
@@ -29,7 +29,7 @@
 @media (max-width: 520px) {
     .categories-result-title {
         font-size: 32px;
-        margin: 15px 0 45px;
+        margin: 15px 10px 45px;
     }
     .wrap-categories-result {
         gap: 20px 10px;
@@ -38,6 +38,6 @@
 @media (max-width: 320px) {
     .categories-result-title {
         font-size: 28px;
-        margin: 10px 0 40px;
+        margin: 10px 10px 40px;
     }
 }

@@ -1,15 +1,19 @@
-<div class="wrap-results">
-    <div>Категория {{ numCategory }} </div>
+<div class="results-title">Category {{ numCategory }} results</div>
 
-    <div class="wrap-results-item">
-        <div *ngFor="let item of score; let ind=index" class="results-item-img" [ngClass]=" {'img-dark': !item[1]} ">
-            <img (click)="showInfo(ind, item[0])" src="../../../../assets/img/{{item[0]}}.jpg" alt="img">
-            <div *ngIf="indImgInfo==ind && isShowInfo">
-                <div>{{currentImgInfo.author}}</div>
-                <div>{{currentImgInfo.name}}</div>
-                <div>{{currentImgInfo.year}}</div>
+<div class="wrap-results">
+    <div *ngFor="let item of score; let ind=index" [ngClass]=" {'img-dark': !item[1]} ">
+
+        <div class="result-card">
+            <div class="front-content">
+                <img src="../../../../assets/img/{{item[0]}}.jpg" alt="img">
+            </div>
+
+            <div class="back-content">
+                <div class="back-content-name">{{allImagesInfo[item[0]].name}}</div>
+                <div class="back-content-author">{{allImagesInfo[item[0]].author}}, {{allImagesInfo[item[0]].year}}</div>
             </div>
         </div>
+    
     </div>
 
 </div>
