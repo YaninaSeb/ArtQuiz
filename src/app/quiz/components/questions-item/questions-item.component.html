@@ -1,11 +1,11 @@
 <div *ngIf="nameCategory == 'artists'; else pictures">
-    <div class="wrap-question">
-        <div class="question-title"> 
-            Какую из этих картин написал {{dataCurrentQuestion.author}}?
+    <div class="wrap-question-artist">
+        <div class="question-artist-title"> 
+            Which is {{dataCurrentQuestion.author}} picture?
         </div>
     
-        <div class="question-images">
-            <img class="question-images-variant"
+        <div class="question-artist-variant">
+            <img class="question-artist-variant-images"
                 *ngFor="let randomAnswer of dataCurrentQuestion.randomAnswers" 
                 src="../../../../assets/img/{{+randomAnswer}}.jpg"
                 (click)="checkAnswer(dataCurrentQuestion.imageNum, randomAnswer)"
@@ -13,8 +13,8 @@
                 alt="picture">
         </div>
     
-        <div class="question-score">
-            <div class="question-score-color"
+        <div class="question-artist-score">
+            <div class="question-artist-score-item"
                 *ngFor="let answer of score"
                 [appScoreHighlight]="answer">
             </div>
@@ -23,7 +23,7 @@
 </div>
 
 <ng-template #pictures>
-    <div class="wrap-question">
+    <!-- <div class="wrap-question">
         <div class="question-title"> 
             Кто автор этой картины?
         </div>
@@ -49,5 +49,5 @@
             </div>
         </div>
     
-    </div>
+    </div> -->
 </ng-template>
