@@ -23,31 +23,30 @@
 </div>
 
 <ng-template #pictures>
-    <!-- <div class="wrap-question">
-        <div class="question-title"> 
-            Кто автор этой картины?
+    <div class="wrap-question-picture">
+        <div class="question-picture-title"> 
+            Who is the author of this picture?
         </div>
     
-        <div class="question-image">
-            <img class="question-image-img"
-                src="../../../../assets/img/{{dataCurrentQuestion.imageNum}}.jpg"
+        <div class="question-picture-img">
+            <img src="../../../../assets/img/{{dataCurrentQuestion.imageNum}}.jpg"
                 alt="picture">
         </div>
     
-        <div class="question-score">
-            <div class="question-score-color"
+        <div class="question-picture-score">
+            <div class="question-picture-score-item"
                 *ngFor="let answer of score"
                 [appScoreHighlight]="answer">
             </div>
         </div>
     
-        <div class="question-artists">
-            <div class="question-artists-variant"
+        <div class="question-picture-variant">
+            <div class="question-picture-variant-names"
                 *ngFor="let randomAnswer of dataCurrentQuestion.randomAnswers" 
                 (click)="checkAnswer(dataCurrentQuestion.imageNum, randomAnswer)">
                 {{randomAnswer}}
             </div>
         </div>
     
-    </div> -->
+    </div>
 </ng-template>

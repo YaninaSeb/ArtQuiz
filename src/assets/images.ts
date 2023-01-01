@@ -21,7 +21,7 @@ export const imagesInfo: IImagesItem[] = [
   },
   {
     "author": "Veronese",
-    "name": "Feast at Levi's House.",
+    "name": "Feast at Levi's House",
     "year": "1563",
     "imageNum": "2"
   },
@@ -128,8 +128,8 @@ export const imagesInfo: IImagesItem[] = [
     "imageNum": "19"
   },
   {
-    "author": "Bartolomeo Murillo.",
-    "name": "Madonna and beads.",
+    "author": "Bartolomeo Murillo",
+    "name": "Madonna and beads",
     "year": "1655",
     "imageNum": "20"
   },
