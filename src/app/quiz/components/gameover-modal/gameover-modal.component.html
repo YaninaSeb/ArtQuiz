@@ -1,10 +1,10 @@
-<div mat-dialog-content>
-    <div>IMG</div>
-    <div>CONGRATULATION</div>
-    <div>{{data.answers}}/10</div>
-</div>
-  
-<div>
-    <button (click)="goHome()">home</button>
-    <button (click)="goCategories()">next Quiz</button>
+<div mat-dialog-content class="wrap-gameover">
+    <div class="gameover-img"></div>
+    <div class="gameover-text">Congratulations!</div>
+    <div class="gameover-score">{{data.answers}}/10</div>
+
+    <div class="gameover-btns">
+        <div class="gameover-btn-home" (click)="goHome()">Home</div>
+        <div class="gameover-btn-next" (click)="goCategories()">Next Quiz</div>
+    </div>
 </div>
