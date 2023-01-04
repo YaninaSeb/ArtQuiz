@@ -13,12 +13,14 @@ import { ResultsComponent } from './pages/results/results.component';
 import { ResultsItemComponent } from './components/results-item/results-item.component';
 import { AnswerModalComponent } from './components/answer-modal/answer-modal.component';
 import { GameoverModalComponent } from './components/gameover-modal/gameover-modal.component';
+import { ErrorPageComponent } from "../core/pages/error-page/error-page.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: ':nameCategory', component: CategoriesComponent, pathMatch: 'full' },
   { path: ':nameCategory/:indexCategory', component: QuestionsComponent, pathMatch: 'full' },
-  { path: ':nameCategory/:indexCategory/results', component: ResultsComponent, pathMatch: 'full' }
+  { path: ':nameCategory/:indexCategory/results', component: ResultsComponent, pathMatch: 'full' },
+  { path: '**', component: ErrorPageComponent }
 ];
 
 @NgModule({

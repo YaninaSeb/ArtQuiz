@@ -47,9 +47,13 @@ export class QuestionsItemComponent implements OnInit {
       this.numCategory = +params['indexCategory'];
     });
 
-    this.currentQuestionSubscription = this.numberQuestion$.subscribe((numQuestion: number) => {
-      this.dataCurrentQuestion = this.questionService.getQuestion(this.numCategory, numQuestion);
-    });
+    if (this.numCategory >= 1 && this.numCategory <= 12) {
+      this.currentQuestionSubscription = this.numberQuestion$.subscribe((numQuestion: number) => {
+        this.dataCurrentQuestion = this.questionService.getQuestion(this.numCategory, numQuestion);
+      });
+    } else {
+      this.router.navigate(['error']);
+    }
   }
 
   checkAnswer(rightAnswer: string, selectedAnswer: string) {

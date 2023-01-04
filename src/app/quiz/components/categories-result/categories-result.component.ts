@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from '../../services/category.service';
 import { QuestionService } from '../../services/question.service';
 
@@ -17,16 +17,22 @@ export class CategoriesResultComponent implements OnInit {
   constructor(
     private categoryService: CategoryService,
     private questionService: QuestionService,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe((params) => {
       this.nameCategory = params['nameCategory'];
-      this.questionService.nameCategory = this.nameCategory;
-    });
 
-    this.numCategories = new Array(12);
+      if (this.nameCategory == 'artists' || this.nameCategory == 'pictures') {
+        this.questionService.nameCategory = this.nameCategory;
+        this.numCategories = new Array(12);
+      } else {
+        this.router.navigate(['/error']);
+      }
+
+    });
   }
 
 }
