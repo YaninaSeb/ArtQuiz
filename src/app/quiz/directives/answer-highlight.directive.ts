@@ -4,7 +4,7 @@ import { Directive, ElementRef, HostListener, Input, OnInit, Renderer2 } from '@
   selector: '[appAnswerHighlight]'
 })
 export class AnswerHighlightDirective  {
-  @Input() checkedAnswer!: string;
+  @Input() selectedAnswer!: string;
   @Input() correctAnswer!: string;
   @Input() nameCategory!: string;
 
@@ -22,7 +22,7 @@ export class AnswerHighlightDirective  {
   }
 
   setStyleForArtistAnswer() {
-    if (this.checkedAnswer == this.correctAnswer) {
+    if (this.selectedAnswer == this.correctAnswer) {
       this.renderer2.setStyle(this.el.nativeElement, 'box-shadow', '0px 0px 10px 0px rgb(61, 218, 105)')
     } else {
       this.renderer2.setStyle(this.el.nativeElement, 'box-shadow', '0px 0px 10px 0px rgb(255, 126, 126)')
@@ -30,7 +30,7 @@ export class AnswerHighlightDirective  {
   }
 
   setStyleForPictureAnswer() {
-    if (this.checkedAnswer == this.correctAnswer) {
+    if (this.selectedAnswer == this.correctAnswer) {
       this.renderer2.setStyle(this.el.nativeElement, 'background-color', 'rgb(61, 218, 105)')
     } else {
       this.renderer2.setStyle(this.el.nativeElement, 'background-color', 'rgb(255, 126, 126)')

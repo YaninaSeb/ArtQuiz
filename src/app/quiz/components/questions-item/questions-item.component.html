@@ -11,7 +11,7 @@
                 (click)="checkAnswer(dataCurrentQuestion.imageNum, randomAnswer)"
                 appAnswerHighlight
                 [correctAnswer]="dataCurrentQuestion.imageNum"
-                [checkedAnswer]="randomAnswer"
+                [selectedAnswer]="randomAnswer"
                 [nameCategory]="nameCategory"
                 alt="picture">
         </div>
@@ -49,7 +49,7 @@
                 (click)="checkAnswer(dataCurrentQuestion.imageNum, randomAnswer)"
                 appAnswerHighlight
                 [correctAnswer]="dataCurrentQuestion.author"
-                [checkedAnswer]="randomAnswer"
+                [selectedAnswer]="randomAnswer"
                 [nameCategory]="nameCategory">
                 {{randomAnswer}}
             </div>
