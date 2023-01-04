@@ -18,7 +18,8 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
     QuizModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ]
 })
 export class CoreModule { }
