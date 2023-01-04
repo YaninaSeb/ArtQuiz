@@ -37,7 +37,7 @@
 }
 .question-artist-variant-images:hover {
     transform: scale(103%);
-    box-shadow: 0px 0px 10px 0px rgba(241, 255, 138, 0.5); 
+    box-shadow: 0px 0px 10px 0px rgba(241, 255, 138, 0.5);
 }
 .question-artist-score,
 .question-picture-score {

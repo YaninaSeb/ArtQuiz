@@ -58,7 +58,6 @@ export class QuestionsItemComponent implements OnInit {
 
   checkAnswer(rightAnswer: string, selectedAnswer: string) {
     let isRightAnswer = this.answersService.checkAnswer(this.nameCategory, this.numberQuestion$$.value, rightAnswer, selectedAnswer);
-
     setTimeout(() => this.openAnswerModal(isRightAnswer), 500)
   }
 

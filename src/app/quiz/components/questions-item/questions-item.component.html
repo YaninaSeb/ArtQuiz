@@ -5,11 +5,14 @@
         </div>
     
         <div class="question-artist-variant">
-            <img class="question-artist-variant-images"
+            <img class="question-artist-variant-images question-artist-correct-answer"
                 *ngFor="let randomAnswer of dataCurrentQuestion.randomAnswers" 
                 src="../../../../assets/img/{{+randomAnswer}}.jpg"
                 (click)="checkAnswer(dataCurrentQuestion.imageNum, randomAnswer)"
-                [ngClass]="{'right': true }"
+                appAnswerHighlight
+                [correctAnswer]="dataCurrentQuestion.imageNum"
+                [checkedAnswer]="randomAnswer"
+                [nameCategory]="nameCategory"
                 alt="picture">
         </div>
     
@@ -43,7 +46,11 @@
         <div class="question-picture-variant">
             <div class="question-picture-variant-names"
                 *ngFor="let randomAnswer of dataCurrentQuestion.randomAnswers" 
-                (click)="checkAnswer(dataCurrentQuestion.imageNum, randomAnswer)">
+                (click)="checkAnswer(dataCurrentQuestion.imageNum, randomAnswer)"
+                appAnswerHighlight
+                [correctAnswer]="dataCurrentQuestion.author"
+                [checkedAnswer]="randomAnswer"
+                [nameCategory]="nameCategory">
                 {{randomAnswer}}
             </div>
         </div>

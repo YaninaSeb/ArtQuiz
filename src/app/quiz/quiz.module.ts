@@ -14,6 +14,7 @@ import { ResultsItemComponent } from './components/results-item/results-item.com
 import { AnswerModalComponent } from './components/answer-modal/answer-modal.component';
 import { GameoverModalComponent } from './components/gameover-modal/gameover-modal.component';
 import { ErrorPageComponent } from "../core/pages/error-page/error-page.component";
+import { AnswerHighlightDirective } from './directives/answer-highlight.directive';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -35,7 +36,8 @@ const routes: Routes = [
     ResultsComponent,
     ResultsItemComponent,
     AnswerModalComponent,
-    GameoverModalComponent
+    GameoverModalComponent,
+    AnswerHighlightDirective
   ],
   imports: [
     RouterModule.forChild(routes),

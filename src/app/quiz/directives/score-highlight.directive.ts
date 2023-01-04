@@ -18,9 +18,9 @@ export class ScoreHighlightDirective implements OnInit {
 
   changeScoreHighlight() {
     if (this.appScoreHighlight == true) {
-      this.renderer2.setStyle(this.el.nativeElement, 'background-color', 'green')
+      this.renderer2.setStyle(this.el.nativeElement, 'background-color', '#3DDA69')
     } else if (this.appScoreHighlight == false) {
-      this.renderer2.setStyle(this.el.nativeElement, 'background-color', 'red')
+      this.renderer2.setStyle(this.el.nativeElement, 'background-color', '#FF7E7E')
     }
   }
 
