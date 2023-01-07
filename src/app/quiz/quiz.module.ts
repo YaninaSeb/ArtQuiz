@@ -5,7 +5,6 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { CategoriesResultComponent } from './components/categories-result/categories-result.component';
 import { CategoriesItemComponent } from './components/categories-item/categories-item.component';
 import { CommonModule } from "@angular/common";
-import { CategoryService } from "./services/category.service";
 import { QuestionsComponent } from './pages/questions/questions.component';
 import { QuestionsItemComponent } from './components/questions-item/questions-item.component';
 import { ScoreHighlightDirective } from './directives/score-highlight.directive';
@@ -46,9 +45,6 @@ const routes: Routes = [
   exports: [
     RouterModule,
     CategoriesComponent
-  ],
-  providers: [
-    CategoryService
   ]
 })
 export class QuizModule {}

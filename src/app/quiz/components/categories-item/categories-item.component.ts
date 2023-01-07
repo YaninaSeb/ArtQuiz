@@ -9,9 +9,9 @@ import { QuestionService } from '../../services/question.service';
 })
 export class CategoriesItemComponent implements OnInit {
 
-  nameCategory!: string;
-
   @Input() indexCategory!: number;
+
+  nameCategory!: string;
 
   numQuestions = 10;
 

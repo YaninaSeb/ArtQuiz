@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CategoryService } from '../../services/category.service';
 import { QuestionService } from '../../services/question.service';
 
 @Component({
@@ -15,7 +14,6 @@ export class CategoriesResultComponent implements OnInit {
   numCategories!: number[];
 
   constructor(
-    private categoryService: CategoryService,
     private questionService: QuestionService,
     private activateRoute: ActivatedRoute,
     private router: Router
