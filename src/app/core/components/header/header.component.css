@@ -2,7 +2,7 @@
     min-height: 100px;
     height: 10vh;
     width: 100%;
-    padding: 20px 70px;
+    padding: 20px 60px;
     box-sizing: border-box;
     background-color: rgb(2, 2, 31);
     display: flex;
@@ -63,7 +63,7 @@
 }
 @media (max-width: 768px) {
     .wrap-header {
-        padding: 20px 40px;
+        padding: 20px 30px;
     }
 }
 @media (max-width: 520px) {
@@ -84,7 +84,7 @@
 @media (max-width: 320px) {
     .wrap-header {
         min-height: 80px;
-        padding: 20px 20px;
+        padding: 20px 10px;
     }
     .header-logo {
         width: 90px;

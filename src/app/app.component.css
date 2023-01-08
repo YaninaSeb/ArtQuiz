@@ -3,9 +3,7 @@
   min-width: 320px;
   height: 100%;
   margin: 0 auto;
-  background: url('../assets/background/page/bg.jpeg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: rgb(2, 2, 31);
   color: white;
 }
 .page-main {

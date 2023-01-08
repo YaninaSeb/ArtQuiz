@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LocalService } from '../../services/local.service';
 import { QuestionService } from '../../services/question.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class CategoriesResultComponent implements OnInit {
   constructor(
     private questionService: QuestionService,
     private activateRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private localService: LocalService
   ) { }
 
   ngOnInit(): void {
@@ -26,6 +28,7 @@ export class CategoriesResultComponent implements OnInit {
       if (this.nameCategory == 'artists' || this.nameCategory == 'pictures') {
         this.questionService.nameCategory = this.nameCategory;
         this.numCategories = new Array(12);
+        this.localService.saveData('nameCategory', this.nameCategory);
       } else {
         this.router.navigate(['/error']);
       }

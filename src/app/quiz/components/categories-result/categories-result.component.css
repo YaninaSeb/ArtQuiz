@@ -9,7 +9,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 30px 30px;
+    gap: calc((95vw - 200px * 6) / 6) calc((95vw - 200px * 6) / 6);
     overflow-y: scroll;
     padding: 0 10px 20px;
 }

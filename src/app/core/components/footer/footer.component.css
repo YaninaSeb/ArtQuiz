@@ -4,7 +4,7 @@
     bottom: 0;
     height: 5vh;
     width: 100%;
-    padding-left: 70px;
+    padding-left: 60px;
     box-sizing: border-box;
     background-color: rgb(2, 2, 31);
     display: flex;
@@ -32,7 +32,7 @@
 }
 @media (max-width: 768px) {
     .wrap-footer {
-        padding-left: 40px;
+        padding-left: 30px;
     }
     .footer-link {
         letter-spacing: 0;
@@ -45,7 +45,7 @@
 }
 @media (max-width: 320px) {
     .wrap-footer {
-        padding-left: 20px;
+        padding-left: 10px;
     }
     .footer-link {
         font-size: 10px;

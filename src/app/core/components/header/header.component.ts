@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Event, NavigationStart, Router, RouterEvent } from '@angular/router';
+import { Event, Router, RouterEvent } from '@angular/router';
 import { filter } from 'rxjs';
 import { QuestionService } from 'src/app/quiz/services/question.service';
 

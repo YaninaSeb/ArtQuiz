@@ -1,16 +1,23 @@
 import { Injectable } from '@angular/core';
 import { IImagesItem, imagesInfo } from 'src/assets/images';
+import { LocalService } from './local.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuestionService {
   
-  constructor() { }
-
   nameCategory!: string;
 
   questionsInCategory = 10;
+
+  constructor(
+    private localService: LocalService
+  ) {
+    if (this.localService.getData('nameCategory')){
+      this.nameCategory = <string>this.localService.getData('nameCategory');
+    }
+  }
 
   getQuestion(numCategory: number, numQuestion: number) {
     let category = this.getCategory(numCategory);

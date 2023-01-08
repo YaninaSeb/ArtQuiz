@@ -52,7 +52,7 @@ export class QuestionsItemComponent implements OnInit {
         this.dataCurrentQuestion = this.questionService.getQuestion(this.numCategory, numQuestion);
       });
     } else {
-      this.router.navigate(['error']);
+      this.router.navigate(['/error']);
     }
   }
 

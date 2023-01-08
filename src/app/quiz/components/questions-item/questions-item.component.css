@@ -1,23 +1,22 @@
 .wrap-question-artist,
 .wrap-question-picture {
     width: 100%;
-    height: auto;
-    padding: 10px 0;
+    height: 80vh;
+    padding: 10px 60px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    gap: 60px;
     overflow-y: scroll;
-}
-.wrap-question-picture {
-    gap: 50px;
+    overflow-x: hidden;
 }
 .question-artist-title,
 .question-picture-title {
     font-size: 34px;
     text-align: center;
     color: #f1ff8a;
+    margin: 0 20px;
 }
 .question-artist-variant {
     width: 70%;
@@ -29,7 +28,7 @@
 }
 .question-artist-variant-images {
     width: 25vw;
-    height: calc(25vw - 130px);
+    height: calc(25vw - 170px);
     border-radius: 5%;
     object-fit: cover;
     cursor: pointer;
@@ -53,10 +52,6 @@
     border-radius: 50%;
     background-color: rgba(196, 196, 196, 1);
 }
-/* .right {
-    border: 5px solid green;
-} */
-
 .question-picture-img img{
     width: 820px;
     height: 490px;
@@ -89,7 +84,6 @@
     color: rgb(0, 0, 0);
 }
 
-
 @media (max-width: 1440px) {
     .question-artist-title,
     .question-picture-title {
@@ -97,7 +91,7 @@
     }
     .question-artist-variant-images {
         width: 30vw;
-        height: calc(30vw - 120px);
+        height: calc(30vw - 150px);
     }
     .question-picture-img img{
         width: 740px;
@@ -130,7 +124,6 @@
     }
     .question-artist-variant {
         width: 90vw;
-        gap: 18px;
     }
     .question-artist-variant-images {
         width: 38vw;
@@ -162,10 +155,10 @@
 }
 @media (max-width: 768px) {
     .wrap-question-artist {
-        gap: 40px;
+        padding: 10px 30px;
     }
     .wrap-question-picture {
-        gap: 30px;
+        padding: 10px 30px;
     }
     .question-artist-title,
     .question-picture-title {
@@ -204,13 +197,16 @@
     }
 }
 @media (max-width: 520px) {
+    .wrap-question-artist,
+    .wrap-question-picture {
+        height: 70vh;
+    }
     .question-artist-title,
     .question-picture-title {
         font-size: 20px;
     }
     .question-artist-variant {
         width: 90vw;
-        gap: 8px;
     }
     .question-artist-variant-images {
         width: 40vw;
@@ -238,7 +234,7 @@
 @media (max-width: 320px) {
     .wrap-question-artist,
     .wrap-question-picture {
-        gap: 20px;
+        padding: 10px 10px;
     }
     .question-artist-title,
     .question-picture-title {

@@ -75,7 +75,7 @@ export const imagesInfo: IImagesItem[] = [
   },
   {
     "author": "Ilya Repin",
-    "name": "seeing off a recruit",
+    "name": "Seeing off a recruit",
     "year": "1879",
     "imageNum": "11"
   },
@@ -548,7 +548,7 @@ export const imagesInfo: IImagesItem[] = [
     "imageNum": "89"
   },
   {
-    "author": "Vasily tropinin",
+    "author": "Vasily Tropinin",
     "name": "Girl with a pot of roses",
     "year": "1850",
     "imageNum": "90"
