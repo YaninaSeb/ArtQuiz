@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { IImagesItem } from 'src/assets/images';
@@ -13,7 +13,7 @@ import { GameoverModalComponent } from '../gameover-modal/gameover-modal.compone
   templateUrl: './questions-item.component.html',
   styleUrls: ['./questions-item.component.css']
 })
-export class QuestionsItemComponent implements OnInit {
+export class QuestionsItemComponent implements OnInit, OnDestroy {
 
   nameCategory!: string;
 
