@@ -1,0 +1,18 @@
+.wrap-results {
+    height: 85vh;
+    padding: 20px 60px;
+    box-sizing: border-box;
+    background-color: rgb(2, 2, 31);
+    overflow: scroll;
+}
+
+@media (max-width: 768px) {
+    .wrap-results {
+        padding: 0px 30px;
+    }
+}
+@media (max-width: 320px) {
+    .wrap-results {
+        padding: 0px 10px;
+    }
+}

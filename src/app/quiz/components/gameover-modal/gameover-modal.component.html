@@ -1,0 +1,10 @@
+<div mat-dialog-content class="wrap-gameover">
+    <div class="gameover-img"></div>
+    <div class="gameover-text">Congratulations!</div>
+    <div class="gameover-score">{{data.answers}}/10</div>
+
+    <div class="gameover-btns">
+        <div class="gameover-btn-home" (click)="goHome()">Home</div>
+        <div class="gameover-btn-next" (click)="goCategories()">Next Quiz</div>
+    </div>
+</div>

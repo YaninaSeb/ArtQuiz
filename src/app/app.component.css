@@ -1,0 +1,12 @@
+.page {
+  max-width: 1920px;
+  min-width: 320px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: rgb(2, 2, 31);
+  color: white;
+}
+.page-main {
+  height: 85vh;
+  overflow: scroll;
+}

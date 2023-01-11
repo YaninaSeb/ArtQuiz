@@ -1,0 +1,19 @@
+<div class="results-title">Results</div>
+
+<div class="wrap-results">
+    <div *ngFor="let item of score; let ind=index" [ngClass]=" {'img-dark': !item[1]} ">
+
+        <div class="result-card">
+            <div class="front-content">
+                <img src="../../../../assets/img/{{item[0]}}.jpg" alt="img">
+            </div>
+
+            <div class="back-content">
+                <div class="back-content-name">{{allImagesInfo[item[0]].name}}</div>
+                <div class="back-content-author">{{allImagesInfo[item[0]].author}}, {{allImagesInfo[item[0]].year}}</div>
+            </div>
+        </div>
+    
+    </div>
+
+</div>
