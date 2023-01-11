@@ -3,18 +3,15 @@ import { IImagesItem, imagesInfo } from 'src/assets/images';
 import { LocalService } from './local.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class QuestionService {
-  
   nameCategory!: string;
 
   questionsInCategory = 10;
 
-  constructor(
-    private localService: LocalService
-  ) {
-    if (this.localService.getData('nameCategory')){
+  constructor(private localService: LocalService) {
+    if (this.localService.getData('nameCategory')) {
       this.nameCategory = <string>this.localService.getData('nameCategory');
     }
   }
@@ -22,7 +19,10 @@ export class QuestionService {
   getQuestion(numCategory: number, numQuestion: number) {
     let category = this.getCategory(numCategory);
     let question = category[numQuestion - 1];
-    question.randomAnswers = this.getRandomAnswers(numCategory - 1, numQuestion - 1); //получить еще 3 варианта ответа
+    question.randomAnswers = this.getRandomAnswers(
+      numCategory - 1,
+      numQuestion - 1
+    );
     return question;
   }
 
@@ -47,7 +47,7 @@ export class QuestionService {
       res = [imagesInfo[rightNum].author];
       while (res.length < countImgInQuestion) {
         let randomNum = Math.round(Math.random() * (countAllQuestion - 1));
-        let randomName = imagesInfo[randomNum].author
+        let randomName = imagesInfo[randomNum].author;
         if (!res.includes(randomName)) res.push(randomName);
       }
     }
@@ -55,8 +55,7 @@ export class QuestionService {
     return this.shuffle(res);
   }
 
-  shuffle(array: string[]) { 
+  shuffle(array: string[]) {
     return array.sort(() => Math.random() - 0.5);
   }
-
 }

@@ -5,24 +5,20 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { QuizModule } from './quiz/quiz.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from "@angular/material/dialog";
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     QuizModule,
     CoreModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   exports: [CoreModule],
   providers: [],
-  bootstrap: [
-    AppComponent
-  ]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

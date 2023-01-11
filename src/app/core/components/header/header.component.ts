@@ -6,10 +6,9 @@ import { QuestionService } from 'src/app/quiz/services/question.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit{
-
+export class HeaderComponent implements OnInit {
   nameCategory!: string;
 
   isVisibilityHeader!: boolean;
@@ -20,15 +19,15 @@ export class HeaderComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.router.events.pipe(
-      filter((e: Event) => e instanceof RouterEvent)
-    ).subscribe((e: any) => {
-      if (e.url == '/art_quiz') {
-        this.isVisibilityHeader = false;
-      } else {
-        this.isVisibilityHeader = true;
-      }
-    });
+    this.router.events
+      .pipe(filter((e: Event) => e instanceof RouterEvent))
+      .subscribe((e: any) => {
+        if (e.url == '/art_quiz') {
+          this.isVisibilityHeader = false;
+        } else {
+          this.isVisibilityHeader = true;
+        }
+      });
   }
 
   goToCategories() {
@@ -40,5 +39,4 @@ export class HeaderComponent implements OnInit{
     this.nameCategory = '';
     this.router.navigate(['art_quiz']);
   }
-
 }

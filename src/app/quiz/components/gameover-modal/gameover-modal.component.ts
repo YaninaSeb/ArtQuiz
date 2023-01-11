@@ -6,19 +6,18 @@ import { QuestionService } from '../../services/question.service';
 @Component({
   selector: 'app-gameover-modal',
   templateUrl: './gameover-modal.component.html',
-  styleUrls: ['./gameover-modal.component.css']
+  styleUrls: ['./gameover-modal.component.css'],
 })
 export class GameoverModalComponent {
-
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<GameoverModalComponent>,
     private questionService: QuestionService,
     private router: Router
-  ) { }
+  ) {}
 
   goHome() {
-    this.dialogRef.close()
+    this.dialogRef.close();
     this.router.navigate(['art_quiz']);
   }
 
@@ -27,5 +26,4 @@ export class GameoverModalComponent {
     this.dialogRef.close();
     this.router.navigate(['art_quiz', nameCategory]);
   }
-
 }

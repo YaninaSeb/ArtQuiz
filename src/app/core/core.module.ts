@@ -7,19 +7,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 @NgModule({
-  declarations: [
-    FooterComponent,
-    HeaderComponent,
-    ErrorPageComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    QuizModule
-  ],
-  exports: [
-    HeaderComponent,
-    FooterComponent
-  ]
+  declarations: [FooterComponent, HeaderComponent, ErrorPageComponent],
+  imports: [CommonModule, RouterModule, QuizModule],
+  exports: [HeaderComponent, FooterComponent],
 })
-export class CoreModule { }
+export class CoreModule {}

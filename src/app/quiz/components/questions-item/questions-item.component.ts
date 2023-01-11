@@ -11,10 +11,9 @@ import { GameoverModalComponent } from '../gameover-modal/gameover-modal.compone
 @Component({
   selector: 'app-questions-item',
   templateUrl: './questions-item.component.html',
-  styleUrls: ['./questions-item.component.css']
+  styleUrls: ['./questions-item.component.css'],
 })
 export class QuestionsItemComponent implements OnInit, OnDestroy {
-
   nameCategory!: string;
 
   numCategory!: number;
@@ -39,44 +38,54 @@ export class QuestionsItemComponent implements OnInit, OnDestroy {
     private answersService: AnswersService,
     private modal: MatDialog,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe((params) => {
-      this.nameCategory = params['nameCategory']
+      this.nameCategory = params['nameCategory'];
       this.numCategory = +params['indexCategory'];
     });
 
     if (this.numCategory >= 1 && this.numCategory <= 12) {
-      this.currentQuestionSubscription = this.numberQuestion$.subscribe((numQuestion: number) => {
-        this.dataCurrentQuestion = this.questionService.getQuestion(this.numCategory, numQuestion);
-      });
+      this.currentQuestionSubscription = this.numberQuestion$.subscribe(
+        (numQuestion: number) => {
+          this.dataCurrentQuestion = this.questionService.getQuestion(
+            this.numCategory,
+            numQuestion
+          );
+        }
+      );
     } else {
       this.router.navigate(['/error']);
     }
   }
 
   checkAnswer(rightAnswer: string, selectedAnswer: string) {
-    let isRightAnswer = this.answersService.checkAnswer(this.nameCategory, this.numberQuestion$$.value, rightAnswer, selectedAnswer);
-    setTimeout(() => this.openAnswerModal(isRightAnswer), 500)
+    let isRightAnswer = this.answersService.checkAnswer(
+      this.nameCategory,
+      this.numberQuestion$$.value,
+      rightAnswer,
+      selectedAnswer
+    );
+    setTimeout(() => this.openAnswerModal(isRightAnswer), 500);
   }
 
   openAnswerModal(isAnswer: boolean) {
     this.answerModalRef = this.modal.open(AnswerModalComponent, {
-      data: {...this.dataCurrentQuestion, answer: isAnswer}
+      data: { ...this.dataCurrentQuestion, answer: isAnswer },
     });
 
     this.answerModalRef.afterClosed().subscribe(() => {
-      this.nextQuestion()
+      this.nextQuestion();
     });
   }
 
   openGameOverModal() {
-    let rightAnswers = this.score.filter((elem) => elem == true).length
+    let rightAnswers = this.score.filter((elem) => elem == true).length;
     this.gameOverModalRef = this.modal.open(GameoverModalComponent, {
-      data: {answers: rightAnswers}
+      data: { answers: rightAnswers },
     });
-    
+
     this.gameOverModalRef.afterClosed().subscribe(() => {
       this.router.navigate(['art_quiz', this.nameCategory]);
     });
@@ -89,7 +98,7 @@ export class QuestionsItemComponent implements OnInit, OnDestroy {
       this.numberQuestion$$.next(numQuestion);
     } else {
       this.answersService.completeCategory(this.nameCategory, this.numCategory);
-      setTimeout(() => this.openGameOverModal(), 500) 
+      setTimeout(() => this.openGameOverModal(), 500);
     }
   }
 
@@ -97,5 +106,4 @@ export class QuestionsItemComponent implements OnInit, OnDestroy {
     this.currentQuestionSubscription.unsubscribe();
     this.answersService.destroy();
   }
-
 }

@@ -6,17 +6,13 @@ const routes: Routes = [
   { path: '', redirectTo: 'art_quiz', pathMatch: 'full' },
   {
     path: 'art_quiz',
-    loadChildren: () => import('./quiz/quiz.module').then(m => m.QuizModule),
+    loadChildren: () => import('./quiz/quiz.module').then((m) => m.QuizModule),
   },
-  { path: '**', component: ErrorPageComponent }
+  { path: '**', component: ErrorPageComponent },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -6,10 +6,9 @@ import { QuestionService } from '../../services/question.service';
 @Component({
   selector: 'app-categories-result',
   templateUrl: './categories-result.component.html',
-  styleUrls: ['./categories-result.component.css']
+  styleUrls: ['./categories-result.component.css'],
 })
 export class CategoriesResultComponent implements OnInit {
-
   nameCategory!: string;
 
   numCategories!: number[];
@@ -19,7 +18,7 @@ export class CategoriesResultComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     private router: Router,
     private localService: LocalService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe((params) => {
@@ -32,8 +31,6 @@ export class CategoriesResultComponent implements OnInit {
       } else {
         this.router.navigate(['/error']);
       }
-
     });
   }
-
 }
