@@ -17,13 +17,11 @@ export class GameoverModalComponent {
   ) {}
 
   goHome() {
-    this.dialogRef.close();
-    this.router.navigate(['art_quiz']);
+    this.dialogRef.close('');
   }
 
   goCategories() {
     let nameCategory = this.questionService.nameCategory;
-    this.dialogRef.close();
-    this.router.navigate(['art_quiz', nameCategory]);
+    this.dialogRef.close(nameCategory);
   }
 }

@@ -86,8 +86,12 @@ export class QuestionsItemComponent implements OnInit, OnDestroy {
       data: { answers: rightAnswers },
     });
 
-    this.gameOverModalRef.afterClosed().subscribe(() => {
-      this.router.navigate(['art_quiz', this.nameCategory]);
+    this.gameOverModalRef.afterClosed().subscribe((nameCategory) => {
+      if (nameCategory == '') {
+        this.router.navigate(['art_quiz']);
+      } else {
+        this.router.navigate(['art_quiz', nameCategory]);
+      }
     });
   }
 
