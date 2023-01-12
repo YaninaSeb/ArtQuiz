@@ -41,7 +41,7 @@
 }
 @media (max-width: 320px) {
     .wrap-footer {
-        padding-left: 10px;
+        padding-left: 20px;
     }
     .footer-link {
         font-size: 10px;
