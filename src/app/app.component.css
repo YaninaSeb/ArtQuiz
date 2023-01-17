@@ -9,16 +9,12 @@
 }
 .page-header {
   height: 100px;
-  border: 1px solid yellow;
 }
 .page-main {
   height: calc(100vh - 100px - 50px);
-  border: 1px solid red;
-
 }
 .page-footer {
   height: 50px;
-  border: 1px solid green;
 }
 
 @media (max-width: 1024px) {

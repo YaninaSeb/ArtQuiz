@@ -33,6 +33,7 @@
     height: 80px;
     border: 2px solid rgb(255, 255, 255);
     border-radius: 60px;
+    background-color: rgba(2, 2, 31, 0.4);
     text-align: center;
     line-height: 80px;
     font-size: 36px;
@@ -58,51 +59,31 @@
 }
 @media (max-width: 768px) {
     .home-logo {
-        width: 400px;
-        height: 140px;
+        height: 180px;
     }
     .home-category {
         flex-direction: column;
         gap: 40px;
     }
     .home-category-link {
-        width: 270px;
-        height: 50px;
-        line-height: 50px;
-        font-size: 26px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 34px;
     }
 }
 @media (max-width: 520px) {
     .home-logo {
-        width: 380px;
-        height: 120px;
+        height: 28vw;
+        width: 90vw;
     }
     .home-category {
         margin-top: 10vh;
         gap: 25px;
     }
     .home-category-link {
-        width: 240px;
-        height: 40px;
-        line-height: 40px;
-        font-size: 24px;
-    }
-}
-@media (max-width: 320px) {
-    .home-logo {
-        width: 200px;
-        height: 100px;
-    }
-    .home-category {
-        margin-top: 10vh;
-        gap: 25px;
-    }
-    .home-category-link {
-        width: 160px;
-        height: 30px;
-        border: 1px solid rgb(255, 255, 255);
-        line-height: 30px;
-        font-size: 18px;
-        letter-spacing: 2px;
+        width: 60vw;
+        height: 12vw;
+        line-height: 12vw;
+        font-size: 6vw;
     }
 }
