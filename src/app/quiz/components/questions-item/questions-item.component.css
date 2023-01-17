@@ -219,7 +219,7 @@
         height: 30vw;
     }
     .question-picture-variant {
-        width: 85vw;
+        width: 90vw;
     }
     .question-picture-variant-names {
         height: 38px;
@@ -248,19 +248,15 @@
         width: 40vw;
         height: 40vw;
     }
-    .question-picture-img img{
-        width: 85vw;
-        height: 60vw;
-    }
     .question-picture-variant {
-        width: 80vw;
-        gap: 5px;
+        width: 90vw;
+        gap: 10px 10px;
     }
     .question-picture-variant-names {
-        width: 38vw;
-        height: 20px;
-        font-size: 10px;
-        line-height: 20px;
+        height: 30px;
+        font-size: 12px;
+        line-height: 30px;
+        overflow: hidden;
     }
     .question-artist-score,
     .question-picture-score {
