@@ -10,7 +10,7 @@ import {
 @Directive({
   selector: '[appAnswerHighlight]',
 })
-export class AnswerHighlightDirective implements OnInit{
+export class AnswerHighlightDirective implements OnInit {
   @Input() selectedAnswer!: string;
   @Input() correctAnswer!: string;
   @Input() nameCategory!: string;
@@ -23,15 +23,9 @@ export class AnswerHighlightDirective implements OnInit{
 
   setDefaultStyle() {
     if (this.nameCategory == 'artists') {
-      this.renderer2.removeStyle(
-        this.el.nativeElement,
-        'box-shadow'
-      );
-    } else if (this.nameCategory == 'pictures'){
-      this.renderer2.removeStyle(
-        this.el.nativeElement,
-        'background-color'
-      );
+      this.renderer2.removeStyle(this.el.nativeElement, 'box-shadow');
+    } else if (this.nameCategory == 'pictures') {
+      this.renderer2.removeStyle(this.el.nativeElement, 'background-color');
       this.renderer2.setStyle(
         this.el.nativeElement,
         'border-color',
