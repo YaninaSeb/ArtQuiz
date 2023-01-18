@@ -3,18 +3,42 @@ import {
   ElementRef,
   HostListener,
   Input,
+  OnInit,
   Renderer2,
 } from '@angular/core';
 
 @Directive({
   selector: '[appAnswerHighlight]',
 })
-export class AnswerHighlightDirective {
+export class AnswerHighlightDirective implements OnInit{
   @Input() selectedAnswer!: string;
   @Input() correctAnswer!: string;
   @Input() nameCategory!: string;
 
   constructor(private el: ElementRef, private renderer2: Renderer2) {}
+
+  ngOnInit(): void {
+    this.setDefaultStyle();
+  }
+
+  setDefaultStyle() {
+    if (this.nameCategory == 'artists') {
+      this.renderer2.removeStyle(
+        this.el.nativeElement,
+        'box-shadow'
+      );
+    } else if (this.nameCategory == 'pictures'){
+      this.renderer2.removeStyle(
+        this.el.nativeElement,
+        'background-color'
+      );
+      this.renderer2.setStyle(
+        this.el.nativeElement,
+        'border-color',
+        'rgb(255, 255, 255)'
+      );
+    }
+  }
 
   @HostListener('click') onClick() {
     if (this.nameCategory == 'artists') {
