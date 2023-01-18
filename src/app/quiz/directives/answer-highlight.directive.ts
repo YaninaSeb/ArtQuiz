@@ -47,10 +47,20 @@ export class AnswerHighlightDirective {
         'background-color',
         'rgb(61, 218, 105)'
       );
+      this.renderer2.setStyle(
+        this.el.nativeElement,
+        'border-color',
+        'rgb(61, 218, 105)'
+      );
     } else {
       this.renderer2.setStyle(
         this.el.nativeElement,
         'background-color',
+        'rgb(255, 126, 126)'
+      );
+      this.renderer2.setStyle(
+        this.el.nativeElement,
+        'border-color',
         'rgb(255, 126, 126)'
       );
     }
