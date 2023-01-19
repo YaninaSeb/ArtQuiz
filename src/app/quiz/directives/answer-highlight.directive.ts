@@ -37,7 +37,7 @@ export class AnswerHighlightDirective implements OnInit {
   @HostListener('click') onClick() {
     if (this.nameCategory == 'artists') {
       this.setStyleForArtistAnswer();
-    } else {
+    } else if (this.nameCategory == 'pictures'){
       this.setStyleForPictureAnswer();
     }
   }

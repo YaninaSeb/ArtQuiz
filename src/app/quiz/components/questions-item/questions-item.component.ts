@@ -32,6 +32,8 @@ export class QuestionsItemComponent implements OnInit, OnDestroy {
 
   gameOverModalRef: MatDialogRef<GameoverModalComponent> | null = null;
 
+  isAnswerSelected = false;
+
   constructor(
     private activateRoute: ActivatedRoute,
     private questionService: QuestionService,
@@ -61,13 +63,17 @@ export class QuestionsItemComponent implements OnInit, OnDestroy {
   }
 
   checkAnswer(rightAnswer: string, selectedAnswer: string) {
+    this.isAnswerSelected = true;
     let isRightAnswer = this.answersService.checkAnswer(
       this.nameCategory,
       this.numberQuestion$$.value,
       rightAnswer,
       selectedAnswer
     );
-    setTimeout(() => this.openAnswerModal(isRightAnswer), 500);
+    setTimeout(() => {
+      this.openAnswerModal(isRightAnswer);
+      this.isAnswerSelected = false;
+    }, 500);
   }
 
   openAnswerModal(isAnswer: boolean) {

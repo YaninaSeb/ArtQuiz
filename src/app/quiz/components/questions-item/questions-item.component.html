@@ -5,15 +5,18 @@
         </div>
         
         <div class="question-artist-variant">
-            <img class="question-artist-variant-images question-artist-correct-answer"
-                *ngFor="let randomAnswer of dataCurrentQuestion.randomAnswers" 
-                src="../../../../assets/img/{{+randomAnswer}}.jpg"
+            <button *ngFor="let randomAnswer of dataCurrentQuestion.randomAnswers"
+                [disabled]="isAnswerSelected"
                 (click)="checkAnswer(dataCurrentQuestion.imageNum, randomAnswer)"
                 appAnswerHighlight
                 [correctAnswer]="dataCurrentQuestion.imageNum"
                 [selectedAnswer]="randomAnswer"
-                [nameCategory]="nameCategory"
-                alt="picture">
+                [nameCategory]="nameCategory">
+                <img class="question-artist-variant-images question-artist-correct-answer"
+                    src="../../../../assets/img/{{+randomAnswer}}.jpg"
+                    alt="picture">
+            </button>
+            
         </div>
         
         <div class="question-artist-score">
@@ -43,7 +46,8 @@
             </div>
         
             <div class="question-picture-variant">
-                <div class="question-picture-variant-names"
+                <button class="question-picture-variant-names"
+                    [disabled]="isAnswerSelected"
                     *ngFor="let randomAnswer of dataCurrentQuestion.randomAnswers" 
                     (click)="checkAnswer(dataCurrentQuestion.imageNum, randomAnswer)"
                     appAnswerHighlight
@@ -51,7 +55,7 @@
                     [selectedAnswer]="randomAnswer"
                     [nameCategory]="nameCategory">
                     {{randomAnswer}}
-                </div>
+                </button>
             </div>
         
         </div>
