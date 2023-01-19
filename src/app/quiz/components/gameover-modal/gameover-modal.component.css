@@ -1,5 +1,5 @@
 .wrap-gameover {
-    width: 25vw;
+    width: 500px;
     padding: 10px;
     padding-top: 20px;
     display: flex;
@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    gap: 50px;
+    gap: 60px;
 }
 .gameover-img{
     width: 300px;
@@ -18,7 +18,7 @@
     background-position: center;
 }
 .gameover-text {
-    font-size: 30px;
+    font-size: 36px;
 }
 .gameover-score {
     font-size: 50px;
@@ -36,7 +36,7 @@
     height: 55px;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 55px;
-    font-size: 22px;
+    font-size: 28px;
     line-height: 55px;
     cursor: pointer;
     transition: background-color 0.5s;
@@ -49,15 +49,15 @@
 
 @media (max-width: 1440px) {
     .wrap-gameover {
-        width: 30vw;
-        gap: 45px;
+        width: 450px;
+        gap: 50px;
     }
     .gameover-img{
         width: 280px;
         height: 280px;
     }
     .gameover-text {
-        font-size: 28px;
+        font-size: 32px;
     }
     .gameover-score {
         font-size: 48px;
@@ -65,18 +65,19 @@
     .gameover-btn-home,
     .gameover-btn-next {
         height: 50px;
-        font-size: 20px;
+        font-size: 24px;
         line-height: 50px;
     }
 }
-@media (max-width: 1140px) {
+@media (max-width: 1024px) {
     .wrap-gameover {
-        width: 35vw;
+        width: 300px;
+        padding-top: 10px;
         gap: 40px;
     }
     .gameover-img{
-        width: 270px;
-        height: 270px;
+        width: 210px;
+        height: 210px;
     }
     .gameover-text {
         font-size: 26px;
@@ -86,42 +87,37 @@
     }
     .gameover-btn-home,
     .gameover-btn-next {
-        height: 45px;
-        font-size: 18px;
-        line-height: 45px;
+        height: 40px;
+        font-size: 20px;
+        line-height: 40px;
     }
 }
 @media (max-width: 768px) {
     .wrap-gameover {
-        width: 35vw;
-        gap: 35px;
+        width: 45vw;
+        gap: 40px;
     }
     .gameover-img{
         width: 230px;
         height: 230px;
     }
     .gameover-text {
-        font-size: 24px;
+        font-size: 28px;
     }
     .gameover-score {
-        font-size: 42px;
-    }
-    .gameover-btn-home,
-    .gameover-btn-next {
-        height: 38px;
-        font-size: 16px;
-        line-height: 38px;
+        font-size: 48px;
     }
 }
 @media (max-width: 520px) {
     .wrap-gameover {
-        width: 40vw;
+        width: 48vw;
         padding: 0;
         padding-top: 10px;
+        gap: 30px;
     }
     .gameover-img{
-        width: 150px;
-        height: 150px;
+        width: 160px;
+        height: 160px;
     }
     .gameover-text {
         font-size: 22px;
@@ -132,18 +128,18 @@
     .gameover-btn-home,
     .gameover-btn-next {
         height: 30px;
-        font-size: 14px;
+        font-size: 15px;
         line-height: 30px;
     }
 }
-@media (max-width: 520px) {
+@media (max-width: 320px) {
     .wrap-gameover {
         width: 45vw;
         gap: 20px;
     }
     .gameover-img{
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
     }
     .gameover-text {
         font-size: 16px;
@@ -154,7 +150,7 @@
     .gameover-btn-home,
     .gameover-btn-next {
         height: 20px;
-        font-size: 10px;
+        font-size: 11px;
         line-height: 20px;
     }
 }

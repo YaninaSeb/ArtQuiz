@@ -13,6 +13,8 @@ export class HeaderComponent implements OnInit {
 
   isVisibilityHeader!: boolean;
 
+  isVisibilityCategoryLink!: boolean;
+
   constructor(
     private questionService: QuestionService,
     public router: Router
@@ -22,11 +24,10 @@ export class HeaderComponent implements OnInit {
     this.router.events
       .pipe(filter((e: Event) => e instanceof RouterEvent))
       .subscribe((e: any) => {
-        if (e.url == '/art_quiz') {
-          this.isVisibilityHeader = false;
-        } else {
-          this.isVisibilityHeader = true;
-        }
+        this.isVisibilityHeader = e.url !== '/art_quiz';
+        this.isVisibilityCategoryLink = !(
+          e.url == '/art_quiz/artists' || e.url == '/art_quiz/pictures'
+        );
       });
   }
 

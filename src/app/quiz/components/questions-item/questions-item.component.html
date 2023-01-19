@@ -1,21 +1,24 @@
-<div *ngIf="nameCategory === 'artists'; else pictures">
-    <div class="wrap-question-artist">
+<div class="wrap-question">
+    <div *ngIf="nameCategory === 'artists'; else pictures" class="wrap-question-artist">
         <div class="question-artist-title"> 
             Which is {{dataCurrentQuestion.author}} picture?
         </div>
-    
+        
         <div class="question-artist-variant">
-            <img class="question-artist-variant-images question-artist-correct-answer"
-                *ngFor="let randomAnswer of dataCurrentQuestion.randomAnswers" 
-                src="../../../../assets/img/{{+randomAnswer}}.jpg"
+            <button *ngFor="let randomAnswer of dataCurrentQuestion.randomAnswers"
+                [disabled]="isAnswerSelected"
                 (click)="checkAnswer(dataCurrentQuestion.imageNum, randomAnswer)"
                 appAnswerHighlight
                 [correctAnswer]="dataCurrentQuestion.imageNum"
                 [selectedAnswer]="randomAnswer"
-                [nameCategory]="nameCategory"
-                alt="picture">
+                [nameCategory]="nameCategory">
+                <img class="question-artist-variant-images question-artist-correct-answer"
+                    src="../../../../assets/img/{{+randomAnswer}}.jpg"
+                    alt="picture">
+            </button>
+            
         </div>
-    
+        
         <div class="question-artist-score">
             <div class="question-artist-score-item"
                 *ngFor="let answer of score"
@@ -23,37 +26,38 @@
             </div>
         </div>
     </div>
+    
+    <ng-template #pictures>
+        <div class="wrap-question-picture">
+            <div class="question-picture-title"> 
+                Who is the author of this picture?
+            </div>
+        
+            <div class="question-picture-img">
+                <img src="../../../../assets/img/{{dataCurrentQuestion.imageNum}}.jpg"
+                    alt="picture">
+            </div>
+        
+            <div class="question-picture-score">
+                <div class="question-picture-score-item"
+                    *ngFor="let answer of score"
+                    [appScoreHighlight]="answer">
+                </div>
+            </div>
+        
+            <div class="question-picture-variant">
+                <button class="question-picture-variant-names"
+                    [disabled]="isAnswerSelected"
+                    *ngFor="let randomAnswer of dataCurrentQuestion.randomAnswers" 
+                    (click)="checkAnswer(dataCurrentQuestion.imageNum, randomAnswer)"
+                    appAnswerHighlight
+                    [correctAnswer]="dataCurrentQuestion.author"
+                    [selectedAnswer]="randomAnswer"
+                    [nameCategory]="nameCategory">
+                    {{randomAnswer}}
+                </button>
+            </div>
+        
+        </div>
+    </ng-template>
 </div>
-
-<ng-template #pictures>
-    <div class="wrap-question-picture">
-        <div class="question-picture-title"> 
-            Who is the author of this picture?
-        </div>
-    
-        <div class="question-picture-img">
-            <img src="../../../../assets/img/{{dataCurrentQuestion.imageNum}}.jpg"
-                alt="picture">
-        </div>
-    
-        <div class="question-picture-score">
-            <div class="question-picture-score-item"
-                *ngFor="let answer of score"
-                [appScoreHighlight]="answer">
-            </div>
-        </div>
-    
-        <div class="question-picture-variant">
-            <div class="question-picture-variant-names"
-                *ngFor="let randomAnswer of dataCurrentQuestion.randomAnswers" 
-                (click)="checkAnswer(dataCurrentQuestion.imageNum, randomAnswer)"
-                appAnswerHighlight
-                [correctAnswer]="dataCurrentQuestion.author"
-                [selectedAnswer]="randomAnswer"
-                [nameCategory]="nameCategory">
-                {{randomAnswer}}
-            </div>
-        </div>
-    
-    </div>
-</ng-template>

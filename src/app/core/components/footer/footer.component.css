@@ -1,9 +1,5 @@
 .wrap-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    height: 5vh;
-    width: 100%;
+    height: 100%;
     padding-left: 60px;
     box-sizing: border-box;
     background-color: rgb(2, 2, 31);
@@ -25,7 +21,7 @@
     color: #f1ff8a;
 }
 
-@media (max-width: 1140px) {
+@media (max-width: 1024px) {
     .footer-link {
         font-size: 16px;
     }
@@ -45,7 +41,7 @@
 }
 @media (max-width: 320px) {
     .wrap-footer {
-        padding-left: 10px;
+        padding-left: 20px;
     }
     .footer-link {
         font-size: 10px;
