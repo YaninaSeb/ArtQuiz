@@ -1,27 +1,55 @@
 # ArtQuizApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+## Описание проекта
+ArtQuiz - это приложение-викторина на знание шедевров живописи и их авторов.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Функциональность:
+- Навигация по страницам приложения
+- Прохождение раунда с вопросами по выбранной категории  
+- Просмотр результатов пройденного раунда (при клике по количеству очков на странице категорий)
+- Просмотр информации о картине на странице с результатами (клик по карточке)
+- Возможность прохождения раунда повторно
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Стек технологий:
+- TypeScript
+- Angular
+- HTML5 & CSS3
+- Angular Material
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Установка проекта:
 
-## Running unit tests
+Клонировать репозиторий:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    https://github.com/YaninaSeb/ArtQuiz.git
 
-## Running end-to-end tests
+Установить зависимости:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    npm install
 
-## Further help
+Запустить проект:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    npm run start
+
+Перейдите к http://localhost:4200/. Приложение автоматически перезагрузится, если вы измените любой из исходных файлов.
+
+
+## Скриншот:
+<details><summary><b>Развернуть</b></summary>
+
+[![art_quiz](https://user-images.githubusercontent.com/85887443/213432746-6806504f-7da9-47c9-9790-c2c19b478edd.png)]()
+
+[![art_quiz](https://user-images.githubusercontent.com/85887443/213432782-36a207cb-6ea2-434b-a9d7-bd647a83cfc5.png)]()
+
+[![art_quiz](https://user-images.githubusercontent.com/85887443/213432806-2f6173d6-a40d-4b3b-b8d9-8f282484e602.png)]()
+
+[![art_quiz](https://user-images.githubusercontent.com/85887443/213432820-32be171a-bb85-4463-9cf1-d0841b61ec35.png)]()
+
+[![art_quiz](https://user-images.githubusercontent.com/85887443/213432860-65404c8e-08a0-42a2-aadd-e479419f4765.png)]()
+
+[![art_quiz](https://user-images.githubusercontent.com/85887443/213432883-f3ea371d-5bd3-4e75-89de-148683b2b124.png)]()
+
+</details>
+
