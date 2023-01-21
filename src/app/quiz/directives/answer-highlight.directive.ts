@@ -3,36 +3,19 @@ import {
   ElementRef,
   HostListener,
   Input,
-  OnInit,
+  OnDestroy,
   Renderer2,
 } from '@angular/core';
 
 @Directive({
   selector: '[appAnswerHighlight]',
 })
-export class AnswerHighlightDirective implements OnInit {
+export class AnswerHighlightDirective implements OnDestroy {
   @Input() selectedAnswer!: string;
   @Input() correctAnswer!: string;
   @Input() nameCategory!: string;
 
   constructor(private el: ElementRef, private renderer2: Renderer2) {}
-
-  ngOnInit(): void {
-    this.setDefaultStyle();
-  }
-
-  setDefaultStyle() {
-    if (this.nameCategory == 'artists') {
-      this.renderer2.removeStyle(this.el.nativeElement, 'box-shadow');
-    } else if (this.nameCategory == 'pictures') {
-      this.renderer2.removeStyle(this.el.nativeElement, 'background-color');
-      this.renderer2.setStyle(
-        this.el.nativeElement,
-        'border-color',
-        'rgb(255, 255, 255)'
-      );
-    }
-  }
 
   @HostListener('click') onClick() {
     if (this.nameCategory == 'artists') {
@@ -82,5 +65,22 @@ export class AnswerHighlightDirective implements OnInit {
         'rgb(255, 126, 126)'
       );
     }
+  }
+
+  setDefaultStyle() {
+    if (this.nameCategory == 'artists') {
+      this.renderer2.removeStyle(this.el.nativeElement, 'box-shadow');
+    } else if (this.nameCategory == 'pictures') {
+      this.renderer2.removeStyle(this.el.nativeElement, 'background-color');
+      this.renderer2.setStyle(
+        this.el.nativeElement,
+        'border-color',
+        'rgb(255, 255, 255)'
+      );
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.setDefaultStyle();
   }
 }
