@@ -1,0 +1,156 @@
+.wrap-gameover {
+    width: 500px;
+    padding: 10px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 60px;
+}
+.gameover-img{
+    width: 300px;
+    height: 300px;
+    background: url('../../../../assets/svg/Congratulation.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.gameover-text {
+    font-size: 36px;
+}
+.gameover-score {
+    font-size: 50px;
+    font-weight: 500;
+}
+.gameover-btns {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.gameover-btn-home,
+.gameover-btn-next {
+    width: 46%;
+    height: 55px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 55px;
+    font-size: 28px;
+    line-height: 55px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+.gameover-btn-home:hover,
+.gameover-btn-next:hover {
+    border-color: #f1ff8a;
+    background-color: #f1ff8a;
+}
+
+@media (max-width: 1440px) {
+    .wrap-gameover {
+        width: 450px;
+        gap: 50px;
+    }
+    .gameover-img{
+        width: 280px;
+        height: 280px;
+    }
+    .gameover-text {
+        font-size: 32px;
+    }
+    .gameover-score {
+        font-size: 48px;
+    }
+    .gameover-btn-home,
+    .gameover-btn-next {
+        height: 50px;
+        font-size: 24px;
+        line-height: 50px;
+    }
+}
+@media (max-width: 1024px) {
+    .wrap-gameover {
+        width: 300px;
+        padding-top: 10px;
+        gap: 40px;
+    }
+    .gameover-img{
+        width: 210px;
+        height: 210px;
+    }
+    .gameover-text {
+        font-size: 26px;
+    }
+    .gameover-score {
+        font-size: 46px;
+    }
+    .gameover-btn-home,
+    .gameover-btn-next {
+        height: 40px;
+        font-size: 20px;
+        line-height: 40px;
+    }
+}
+@media (max-width: 768px) {
+    .wrap-gameover {
+        width: 45vw;
+        gap: 40px;
+    }
+    .gameover-img{
+        width: 230px;
+        height: 230px;
+    }
+    .gameover-text {
+        font-size: 28px;
+    }
+    .gameover-score {
+        font-size: 48px;
+    }
+}
+@media (max-width: 520px) {
+    .wrap-gameover {
+        width: 48vw;
+        padding: 0;
+        padding-top: 10px;
+        gap: 30px;
+    }
+    .gameover-img{
+        width: 160px;
+        height: 160px;
+    }
+    .gameover-text {
+        font-size: 22px;
+    }
+    .gameover-score {
+        font-size: 38px;
+    }
+    .gameover-btn-home,
+    .gameover-btn-next {
+        height: 30px;
+        font-size: 15px;
+        line-height: 30px;
+    }
+}
+@media (max-width: 320px) {
+    .wrap-gameover {
+        width: 45vw;
+        gap: 20px;
+    }
+    .gameover-img{
+        width: 120px;
+        height: 120px;
+    }
+    .gameover-text {
+        font-size: 16px;
+    }
+    .gameover-score {
+        font-size: 30px;
+    }
+    .gameover-btn-home,
+    .gameover-btn-next {
+        height: 20px;
+        font-size: 11px;
+        line-height: 20px;
+    }
+}
