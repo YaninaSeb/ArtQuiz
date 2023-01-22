@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ErrorPageComponent } from './core/pages/error-page/error-page.component';
 
 const routes: Routes = [
-  { path: 'ArtQuiz', redirectTo: 'art_quiz', pathMatch: 'full' },
+  { path: '', redirectTo: 'art_quiz', pathMatch: 'full' },
   {
     path: 'art_quiz',
     loadChildren: () => import('./quiz/quiz.module').then((m) => m.QuizModule),
